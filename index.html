@@ -12,12 +12,12 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=LXGW WenKai:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"byt0723.xyz","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"byt0723.xyz","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
@@ -98,7 +98,7 @@
       <h1 class="site-title">BYT0723的博客</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">BYT0723's Blog</p>
+      <p class="site-subtitle" itemprop="description">Record Programming</p>
   </div>
 
   <div class="site-nav-right">
@@ -159,6 +159,941 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230610/archlinux-xorg-dwm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230610/archlinux-xorg-dwm/" class="post-title-link" itemprop="url">Arch安装Dwm</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-06-10 15:22:13 / 修改时间：17:16:07" itemprop="dateCreated datePublished" datetime="2023-06-10T15:22:13+08:00">2023-06-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/20230610/archlinux-xorg-dwm/" class="post-meta-item leancloud_visitors" data-flag-title="Arch安装Dwm" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230610/archlinux-xorg-dwm/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230610/archlinux-xorg-dwm/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <!--toc:start-->
+
+<ul>
+<li><a href="#1-%E5%89%8D%E8%A8%80">1. 前言</a></li>
+<li><a href="#2-%E5%AE%89%E8%A3%85-xorg">2. 安装 Xorg</a></li>
+<li><a href="#3-%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85">3. 驱动安装</a></li>
+<li><a href="#4-%E5%AE%89%E8%A3%85">4. 安装</a><ul>
+<li><a href="#41-%E5%AE%89%E8%A3%85-dwm">4.1 安装 Dwm</a></li>
+<li><a href="#42-%E7%BB%88%E7%AB%AF%E5%AE%89%E8%A3%85">4.2 终端安装</a></li>
+<li><a href="#43-%E8%84%9A%E6%9C%AC%E5%AE%89%E8%A3%85">4.3 脚本安装</a></li>
+</ul>
+</li>
+<li><a href="#5-%E5%90%AF%E5%8A%A8">5. 启动</a><ul>
+<li><a href="#51-%E4%BD%BF%E7%94%A8-startx">5.1 使用 startx</a></li>
+<li><a href="#52-%E4%BD%BF%E7%94%A8%E5%90%AF%E5%8A%A8%E7%AE%A1%E7%90%86%E5%99%A8">5.2 使用启动管理器</a><!--toc:end--></li>
+</ul>
+</li>
+</ul>
+<h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h3><p>你需要确保你已经安装好了 Arch 或其他发行版的 Linux,并且已经接入互联网. 选择配置好了你的 <code>pacman.conf</code> 和 <code>mirrorlist</code></p>
+<blockquote>
+<p>Tips: 如果您已接触过其他桌面管理器，可直接跳转至<a href="#4-%E5%AE%89%E8%A3%85">4. 安装</a></p>
+</blockquote>
+<h3 id="2-安装-Xorg"><a href="#2-安装-Xorg" class="headerlink" title="2. 安装 Xorg"></a>2. 安装 Xorg</h3><p>Xorg （通常简称为 X ）是 Linux 用户中最流行的显示服务器。 它无处不在，使其成为 GUI 应用程序永远存在的必要条件，从而导致大多数发行版的大量采用。<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Xorg">wiki</a><br>xorg 是 dwm 乃至大多数桌面环境的基础(hyprrland 除外).</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S xorg xorg-server xorg-apps</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>xorg-apps 中包括了很多有用的工具，例如<code>xrandr</code>、<code>xprop</code>、<code>xmodmap</code>、<code>xsetroot</code></p>
+</blockquote>
+<h3 id="3-驱动安装"><a href="#3-驱动安装" class="headerlink" title="3. 驱动安装"></a>3. 驱动安装</h3><ol>
+<li>显卡</li>
+</ol>
+<ul>
+<li>intel <code>xf86-video-intel</code></li>
+<li>amd <code>xf86-video-amdgpu</code></li>
+<li>nvidia <code>nvidia-dkms</code></li>
+</ul>
+<ol start="2">
+<li>输入设备</li>
+</ol>
+<ul>
+<li><code>xf86-input-libinput</code></li>
+<li>触摸板<code>xf86-input-synaptics</code></li>
+</ul>
+<p>这是配置均可在<code>/etc/X11/xorg.conf.d/</code>下配置,细见<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Xorg#Input_devices">xorg wiki</a>,根据输入设备分类，查看 wiki 进行配置</p>
+<blockquote>
+<p>默认可不配置，在启动后发现设备不可用再配置也可</p>
+</blockquote>
+<h3 id="4-安装"><a href="#4-安装" class="headerlink" title="4. 安装"></a>4. 安装</h3><h4 id="4-1-安装-Dwm"><a href="#4-1-安装-Dwm" class="headerlink" title="4.1 安装 Dwm"></a>4.1 安装 Dwm</h4><blockquote>
+<p>Tips: 如果你安装的过程中需要大量使用 github 或国外的资源，建议先安装并配置好系统代理.</p>
+</blockquote>
+<ul>
+<li>从 suckless.org 从拉取最新的 dwm</li>
+<li>使用现成的<a target="_blank" rel="noopener" href="https://github.com/BYT0723/dwm">github</a>或<a target="_blank" rel="noopener" href="https://gitee.com/BYT0723/dwm">gitee</a></li>
+</ul>
+<p>因为我的现成的,所以我选择现成的.如果你一次接触 Dwm 或平铺式窗口管理器，建议使用最新的 Dwm,然后去安装补丁，或自主修改，虽然使用过程会曲折一些，但你会更加得心应手</p>
+<ol>
+<li>拉取 Dwm</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/BYT0723/dwm.git</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">无法访问github的朋友可</span></span><br><span class="line">git clone https://gitee.com/BYT0723/dwm.git</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>编译安装</li>
+</ol>
+<blockquote>
+<p>Tips: 此步操作需要<code>make</code>,如果没有的朋友可使用包管理工具进行安装</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd dwm</span><br><span class="line">sudo make clean install</span><br></pre></td></tr></table></figure>
+
+<p>dwm 将会被安装到<code>/usr/local/bin/</code>下</p>
+<h4 id="4-2-终端安装"><a href="#4-2-终端安装" class="headerlink" title="4.2 终端安装"></a>4.2 终端安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/BYT0723/st.git</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">无法访问github的朋友可</span></span><br><span class="line">git clone https://gitee.com/BYT0723/st.git</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以及</span></span><br><span class="line">sudo pacman -S alacritty</span><br></pre></td></tr></table></figure>
+
+<p>共安装了两个终端<code>st</code>和<code>alacritty</code>,st 和 dwm 更配，但最令人窒息的就是窗口大小改变时内容会丢失;alacritty 是 rust 编写的，并使用了 gpu 加速，速度更快.<br>在我的 Dwm 配置中 st 提供浮动终端，而 alacritty 供日常使用。alacritty 没有连字功能,st 有连字功能.</p>
+<h4 id="4-3-脚本安装"><a href="#4-3-脚本安装" class="headerlink" title="4.3 脚本安装"></a>4.3 脚本安装</h4><blockquote>
+<p>Dwm 中涉及较多的 shell 脚本，当然还有其他实现方法，各位可自行探索</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/BYT0723/scripts.git ~/.dwm</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">无法访问github的朋友可</span></span><br><span class="line">git clone https://gitee.com/BYT0723/scripts.git ~/.dwm</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>重点：查看<code>~/.dwm/README.md</code>, 安装好所有需要的依赖和字体等，会让你有一个较好的启动体验</p>
+</blockquote>
+<h3 id="5-启动"><a href="#5-启动" class="headerlink" title="5. 启动"></a>5. 启动</h3><h4 id="5-1-使用-startx"><a href="#5-1-使用-startx" class="headerlink" title="5.1 使用 startx"></a>5.1 使用 startx</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果你的~/.xinitrc文件不存在或内容为空</span></span><br><span class="line">echo &quot;exec dwm &gt;&gt; ~/.dwm.log&quot; &gt; .xinitrc</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">否则</span></span><br><span class="line">echo &quot;exec dwm &gt;&gt; ~/.dwm.log&quot; &gt;&gt; .xinitrc</span><br></pre></td></tr></table></figure>
+
+<p>之后在$HOME 目录下执行 <code>startx</code> 即可</p>
+<h4 id="5-2-使用启动管理器"><a href="#5-2-使用启动管理器" class="headerlink" title="5.2 使用启动管理器"></a>5.2 使用启动管理器</h4><p>经过本人使用，双显卡用户使用 optimius-manager 配合启动管理器效果更佳. 配置更轻便简单</p>
+<ol>
+<li>安装 lightdm</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-setting</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>配置 lightdm</li>
+</ol>
+<p>配置 greeter,看清，是<code>[Seat:*]</code>下的配置,将对应的配置项修改为如下值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Seat:*]</span><br><span class="line">greeter-session=lightdm-gtk-greeter</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>添加 Dwm</li>
+</ol>
+<p>将如下如内容添加到<code>/usr/share/xsessions/dwm.desktop</code>中并保存</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Type=XSession</span><br><span class="line">Exec=/usr/local/bin/dwm</span><br><span class="line">TryExec=/usr/local/bin/dwm</span><br><span class="line">DesktopNames=Dwm</span><br><span class="line">Name=Dwm</span><br><span class="line">Comment=Dynamic Window Manager</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>启动</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开机启动</span></span><br><span class="line">sudo systemctl enable lightdm</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动</span></span><br><span class="line">sudo systemctl start lightdm</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这样你就可看到管理器界面，登录即可进入 Dwm</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230526/golang-context/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230526/golang-context/" class="post-title-link" itemprop="url">golang_context</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-05-26 16:33:37 / 修改时间：16:40:11" itemprop="dateCreated datePublished" datetime="2023-05-26T16:33:37+08:00">2023-05-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Language/" itemprop="url" rel="index"><span itemprop="name">Language</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/20230526/golang-context/" class="post-meta-item leancloud_visitors" data-flag-title="golang_context" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230526/golang-context/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230526/golang-context/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="1-Golang-中-context-的作用"><a href="#1-Golang-中-context-的作用" class="headerlink" title="1.Golang 中 context 的作用"></a>1.Golang 中 context 的作用</h3><h3 id="2-Golang-中-context-的原理"><a href="#2-Golang-中-context-的原理" class="headerlink" title="2.Golang 中 context 的原理"></a>2.Golang 中 context 的原理</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230523/db-with-cache/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230523/db-with-cache/" class="post-title-link" itemprop="url">db_with_cache</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-05-23 20:49:00 / 修改时间：22:31:58" itemprop="dateCreated datePublished" datetime="2023-05-23T20:49:00+08:00">2023-05-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/common/" itemprop="url" rel="index"><span itemprop="name">common</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/20230523/db-with-cache/" class="post-meta-item leancloud_visitors" data-flag-title="db_with_cache" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230523/db-with-cache/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230523/db-with-cache/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="1-DB-和-Cache-的数据一致性"><a href="#1-DB-和-Cache-的数据一致性" class="headerlink" title="1. DB 和 Cache 的数据一致性"></a>1. DB 和 Cache 的数据一致性</h3><ul>
+<li><p><strong>延迟双删</strong></p>
+</li>
+<li><p><strong>binlog 异步更新</strong></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230512/lua-interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230512/lua-interview/" class="post-title-link" itemprop="url">lua_interview</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-05-12 17:05:14 / 修改时间：17:10:49" itemprop="dateCreated datePublished" datetime="2023-05-12T17:05:14+08:00">2023-05-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Language/" itemprop="url" rel="index"><span itemprop="name">Language</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/20230512/lua-interview/" class="post-meta-item leancloud_visitors" data-flag-title="lua_interview" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230512/lua-interview/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230512/lua-interview/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="lua-的闭包"><a href="#lua-的闭包" class="headerlink" title="lua 的闭包"></a>lua 的闭包</h3><h3 id="lua-中-table-被用作-array-和-hash-时的区别"><a href="#lua-中-table-被用作-array-和-hash-时的区别" class="headerlink" title="lua 中 table 被用作 array 和 hash 时的区别"></a>lua 中 table 被用作 array 和 hash 时的区别</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230506/network-interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230506/network-interview/" class="post-title-link" itemprop="url">network-interview</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-05-06 22:14:43" itemprop="dateCreated datePublished" datetime="2023-05-06T22:14:43+08:00">2023-05-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-05-09 11:29:47" itemprop="dateModified" datetime="2023-05-09T11:29:47+08:00">2023-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Network/" itemprop="url" rel="index"><span itemprop="name">Network</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/20230506/network-interview/" class="post-meta-item leancloud_visitors" data-flag-title="network-interview" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230506/network-interview/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230506/network-interview/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="XSS-攻击"><a href="#XSS-攻击" class="headerlink" title="XSS 攻击"></a>XSS 攻击</h3><h3 id="Grpc-和-HTTP1-1-应用场景的差别"><a href="#Grpc-和-HTTP1-1-应用场景的差别" class="headerlink" title="Grpc 和 HTTP1.1 应用场景的差别"></a>Grpc 和 HTTP1.1 应用场景的差别</h3><blockquote>
+<p>gRPC 是一种高性能的 RPC（Remote Procedure Call）框架，它使用 Protocol Buffers 进行序列化和反序列化，支持多种编程语言，并提供了丰富的特性，如流式处理、认证和授权等。在微服务场景下，由于 gRPC 使用二进制协议进行通信，因此它的效率和吞吐量都比 RESTful API 更高。此外，gRPC 还提供了更加丰富的服务定义和代码生成工具，可以更加方便地生成客户端和服务器端的代码。<br>而 RESTful API 则是一种基于 HTTP 协议的 API 设计风格，它使用 JSON、XML 等文本格式进行序列化和反序列化，具有简单、灵活、易于理解和使用的特点。RESTful API 适用于基于 HTTP 的应用程序，比如 Web 应用程序、移动应用程序等，且可以跨语言和平台使用。在微服务场景下，RESTful API 具有更加广泛的应用场景，比如服务暴露、API 网关等。<br>因此，选择 gRPC 还是 RESTful API 需要根据具体需求和场景进行选择。如果需要高性能、高吞吐量的微服务之间通信，或者需要流式处理、认证和授权等高级特性，可以选择 gRPC；如果需要简单、灵活、易于理解和使用的 API，或者需要跨语言和平台使用，可以选择 RESTful API。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230506/string-algorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230506/string-algorithm/" class="post-title-link" itemprop="url">string-algorithm</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-05-06 21:34:31 / 修改时间：21:39:42" itemprop="dateCreated datePublished" datetime="2023-05-06T21:34:31+08:00">2023-05-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/20230506/string-algorithm/" class="post-meta-item leancloud_visitors" data-flag-title="string-algorithm" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230506/string-algorithm/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230506/string-algorithm/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>waiting to learn</p>
+</blockquote>
+<h3 id="1-字符串匹配算法（KMP）"><a href="#1-字符串匹配算法（KMP）" class="headerlink" title="1. 字符串匹配算法（KMP）"></a>1. 字符串匹配算法（KMP）</h3><h3 id="2-LIS（最长递增子序列）"><a href="#2-LIS（最长递增子序列）" class="headerlink" title="2. LIS（最长递增子序列）"></a>2. LIS（最长递增子序列）</h3><h3 id="3-LCS（最长公共子序列）"><a href="#3-LCS（最长公共子序列）" class="headerlink" title="3. LCS（最长公共子序列）"></a>3. LCS（最长公共子序列）</h3><h3 id="4-LCP（最长公共前缀）"><a href="#4-LCP（最长公共前缀）" class="headerlink" title="4. LCP（最长公共前缀）"></a>4. LCP（最长公共前缀）</h3><h3 id="5-LPS（最长回文子序列）"><a href="#5-LPS（最长回文子序列）" class="headerlink" title="5. LPS（最长回文子序列）"></a>5. LPS（最长回文子序列）</h3><h3 id="6-ED（最小编辑距离）"><a href="#6-ED（最小编辑距离）" class="headerlink" title="6. ED（最小编辑距离）"></a>6. ED（最小编辑距离）</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230506/os-interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230506/os-interview/" class="post-title-link" itemprop="url">os-interview</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-05-06 19:09:18" itemprop="dateCreated datePublished" datetime="2023-05-06T19:09:18+08:00">2023-05-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-05-09 09:07:37" itemprop="dateModified" datetime="2023-05-09T09:07:37+08:00">2023-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/20230506/os-interview/" class="post-meta-item leancloud_visitors" data-flag-title="os-interview" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230506/os-interview/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230506/os-interview/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="1-同步和异步，阻塞和非阻塞"><a href="#1-同步和异步，阻塞和非阻塞" class="headerlink" title="1. 同步和异步，阻塞和非阻塞"></a>1. 同步和异步，阻塞和非阻塞</h3><h3 id="2-线程状态"><a href="#2-线程状态" class="headerlink" title="2. 线程状态"></a>2. 线程状态</h3><h3 id="3-什么是上下文切换"><a href="#3-什么是上下文切换" class="headerlink" title="3. 什么是上下文切换"></a>3. 什么是上下文切换</h3><h3 id="4-文件系统格式"><a href="#4-文件系统格式" class="headerlink" title="4. 文件系统格式"></a>4. 文件系统格式</h3><ol>
+<li>类 Unix<br>ext</li>
+</ol>
+<ul>
+<li>ext</li>
+<li>ext2</li>
+<li>ext3</li>
+<li>ext4</li>
+</ul>
+<ol start="2">
+<li>DOM</li>
+</ol>
+<ul>
+<li>FAT32</li>
+</ul>
+<p>传统的 windows 平台文件系统格式，兼容性强。<br>但 FAT32 不支持 4GB 以上的文件，并且没有日志，也就是断电后容易出现文件丢失的情况</p>
+<ul>
+<li>NTFS</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230506/sql-interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230506/sql-interview/" class="post-title-link" itemprop="url">sql-interview</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-05-06 18:59:55" itemprop="dateCreated datePublished" datetime="2023-05-06T18:59:55+08:00">2023-05-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-05-09 09:07:29" itemprop="dateModified" datetime="2023-05-09T09:07:29+08:00">2023-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DB/" itemprop="url" rel="index"><span itemprop="name">DB</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/20230506/sql-interview/" class="post-meta-item leancloud_visitors" data-flag-title="sql-interview" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230506/sql-interview/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230506/sql-interview/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="1-SQL-语句的执行流程"><a href="#1-SQL-语句的执行流程" class="headerlink" title="1. SQL 语句的执行流程"></a>1. SQL 语句的执行流程</h3><h4 id="1-1-逻辑剖析"><a href="#1-1-逻辑剖析" class="headerlink" title="1.1 逻辑剖析"></a>1.1 逻辑剖析</h4><blockquote>
+<p>sql 语句 &gt; 查询缓存 &gt; 解释器 &gt; 优化器 &gt; 执行器</p>
+</blockquote>
+<h4 id="1-2"><a href="#1-2" class="headerlink" title="1.2"></a>1.2</h4><h3 id="2-如何在生产环境中为表格增加字段？"><a href="#2-如何在生产环境中为表格增加字段？" class="headerlink" title="2. 如何在生产环境中为表格增加字段？"></a>2. 如何在生产环境中为表格增加字段？</h3><h3 id="3-事务"><a href="#3-事务" class="headerlink" title="3.事务"></a>3.事务</h3><p>ACID</p>
+<ul>
+<li>Atomicity，原子操作</li>
+<li>Consistency，一致性</li>
+<li>Isolation，隔离性</li>
+<li>Durability，持久性</li>
+</ul>
+<p>解释如下可能会用到 2~3 个事务，这里简称 ABC。</p>
+<ul>
+<li><p>脏写</p>
+<ol>
+<li>A 先将数据从 NULL 更新为 1</li>
+<li>在 A 未提交时，B 将数据从 1 更新为 2</li>
+<li>A 在执行过程中发生错误并回滚，将数据回滚为 NULL</li>
+<li>B 提交后发现数据并不是 2，并且自己的事务并没有执行失败</li>
+</ol>
+<p>B 写失败了</p>
+</li>
+<li><p>脏读</p>
+<ol>
+<li>A 先将数据从 NULL 更新为 1</li>
+<li>在 A 未提交时，B 读取数据为 1</li>
+<li>A 在执行过程中发生错误并回滚，将数据回滚为 NULL</li>
+<li>B 再次读取数据发现是 NULL</li>
+</ol>
+<p>B 在 step 2 时读取了脏数据</p>
+</li>
+</ul>
+<blockquote>
+<p>脏写和脏读类似，都是对<strong>未提交事务修改的数据</strong>进行操作，在该事务发生错误回滚后，就会导致脏写和脏读发生</p>
+</blockquote>
+<ul>
+<li><p>不可重复读（update）<br>A 在执行过程中多次读取数据，但在执行过程中，B 和 C 修改并提交了数据，导致 A 多次读取读取到了不同的值</p>
+</li>
+<li><p>幻读（insert,delete）<br>A 在执行过程中多次查询数据，但在执行过程中，B 和 C 插入并提交新的数据，导致 A 多次查询，查到了不同条数的结果</p>
+</li>
+</ul>
+<h4 id="3-2-事务隔离级别"><a href="#3-2-事务隔离级别" class="headerlink" title="3.2 事务隔离级别"></a>3.2 事务隔离级别</h4><ul>
+<li><p>Read Uncommitted（读未提交）<br>顾名思义，事务可以读取到其他事务未提交的数据。会发生脏读、不可重复读和幻读。</p>
+</li>
+<li><p>Read Committed（读以提交）<br>事务无法读取到其他事务未提交的数据，杜绝脏读出现，但仍然会发生不可重复读和幻读。</p>
+</li>
+<li><p>Repeatable Read（可重复读）<br>MVCC(Multi-Version Concurrency Control)，多版本并发控制。事务开始时，会进行快照读，如果想读取新的数据，可进行当前读。当然这样会出现不可重复读和幻读的现象</p>
+</li>
+<li><p>Serializable（序列化）<br>事务按照顺序执行，需要的数据行或表都会被加锁</p>
+</li>
+</ul>
+<h4 id="4-clickhouse-这种列式数据库和传统数据库的优劣"><a href="#4-clickhouse-这种列式数据库和传统数据库的优劣" class="headerlink" title="4. clickhouse 这种列式数据库和传统数据库的优劣"></a>4. clickhouse 这种列式数据库和传统数据库的优劣</h4><ol>
+<li><p>clickhouse<br>优点：</p>
+<ul>
+<li>高效查询：列式数据库，可快速进行聚合查询、分析等，有较强的并发处理能力</li>
+<li>可扩展性：clickhouse 可水平扩展，通过添加更多节点来扩展数据库的存储和处理能力</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>数据更新操作相对较慢：不适合需要频繁进行数据更新的场景</li>
+<li>不支持复杂的关系型数据库模型：由于是列式数据库，不支持传统的关系型数据库的数据模型</li>
+</ul>
+</li>
+<li><p>mysql 等<br>优点：</p>
+<ul>
+<li>事务支持：传统关系型数据库有强大的事务支持，可以确保数据的一致性和可靠性</li>
+<li>灵活性：支持复杂的查询和数据操作，可以满足各种不同的场景</li>
+<li>成熟的生态系统：传统的关系型数据库有很多成熟的工具和框架，可以帮助开发人员进行开发、测试和部署。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>不太适合大数据场景：传统的关系型数据库通常不太适合处理大数据，会遇到性能瓶颈</li>
+<li>可扩展性有限：传统数据库扩展性有点，需要进行垂直扩展即，增加更多的计算和存储资源，这会带来较高的成本。</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230504/lock/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -190,7 +1125,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-05 23:03:30" itemprop="dateModified" datetime="2023-05-05T23:03:30+08:00">2023-05-05</time>
+                <time title="修改时间：2023-06-07 22:41:18" itemprop="dateModified" datetime="2023-06-07T22:41:18+08:00">2023-06-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -262,6 +1197,33 @@
 <li>公平读写锁<br>用队列把获取锁的线程排队，按照先进先出的原则加锁即可，这样读线程仍然可以并发，也不会出现饥饿的现象。</li>
 </ul>
 <h3 id="3-乐观锁"><a href="#3-乐观锁" class="headerlink" title="3. 乐观锁"></a>3. 乐观锁</h3><p>先修改完共享资源，再验证这段时间内有没有发生冲突，如果没有其他线程在修改资源，那么操作完成，如果发现有其他线程已经修改过这个资源，就放弃本次操作。<br>乐观锁虽然去除了加锁解锁的操作，但是一旦发生冲突，重试的成本非常高，所以只有在<strong>冲突概率非常低</strong>，且<strong>加锁成本非常高</strong>的场景时，才考虑使用乐观锁。</p>
+<h3 id="4-分布式锁-多个服务竞争同个资源"><a href="#4-分布式锁-多个服务竞争同个资源" class="headerlink" title="4. 分布式锁(多个服务竞争同个资源)"></a>4. 分布式锁(多个服务竞争同个资源)</h3><ul>
+<li><p>setnx or (set )</p>
+<ol>
+<li>加锁</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用setnx</span></span><br><span class="line">setnx lock_name uid</span><br><span class="line">expire lock_name ttl</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用<span class="built_in">set</span> + nx</span></span><br><span class="line">set lock_name uid ex ttl nx</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>ttl 生命周期(毫秒)</p>
+</blockquote>
+<p>使用<code>setnx</code>进行了两步操作，非原子操作，可能会出现死锁的情况，所以建议使用<code>set</code> + <code>nx</code>。</p>
+<ol start="2">
+<li>解锁</li>
+</ol>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> redis.call(<span class="string">&quot;get&quot;</span>, KEYS[<span class="number">1</span>]) == ARGV[<span class="number">1</span>] <span class="keyword">then</span></span><br><span class="line">  <span class="keyword">return</span> redis.call(<span class="string">&quot;del&quot;</span>, KEYS[<span class="number">1</span>])</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>解锁时为避免非本人解锁，一般将服务的 uid (unique id) 存储在锁的 value 中，解锁是对比 value,防止错误解锁引发事故。<br>为保证原子性，所以使用 lua 脚本进行操作。</p>
+</li>
+<li><p>通过 sql 中的 unique 索引</p>
+<ol>
+<li>向表中的唯一索引列插入 lock_name，成功则获得锁成功，反之失败</li>
+<li>通过 delete 语句删除 lock_name</li>
+</ol>
+</li>
+<li><p>redisson 等等</p>
+</li>
+</ul>
 
       
     </div>
@@ -379,986 +1341,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230416/etcd-intro-md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="BYT0723">
-      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BYT0723的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/20230416/etcd-intro-md/" class="post-title-link" itemprop="url">Etcd</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-04-16 08:33:28" itemprop="dateCreated datePublished" datetime="2023-04-16T08:33:28+08:00">2023-04-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-05 22:25:01" itemprop="dateModified" datetime="2023-05-05T22:25:01+08:00">2023-05-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NoSQL/" itemprop="url" rel="index"><span itemprop="name">NoSQL</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/20230416/etcd-intro-md/" class="post-meta-item leancloud_visitors" data-flag-title="Etcd" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/20230416/etcd-intro-md/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/20230416/etcd-intro-md/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <!--toc:start-->
-
-<ul>
-<li><a href="#1-etcd-%E6%98%AF%E4%BB%80%E4%B9%88">1. etcd 是什么</a><ul>
-<li><a href="#11-etcd-%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">1.1 etcd 的应用场景:</a></li>
-</ul>
-</li>
-<li><a href="#2-etcd-%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C">2. etcd 的基本操作</a><!--toc:end--></li>
-</ul>
-<h3 id="1-etcd-是什么"><a href="#1-etcd-是什么" class="headerlink" title="1. etcd 是什么"></a>1. etcd 是什么</h3><p>etcd 是一个分布式键值对存储，设计用来可靠而快速的保存关键数据并提供访问。<br>通过分布式锁，leader 选举和写屏障(write barriers)来实现可靠的分布式协作。<br>etcd 集群是为高可用，持久性数据存储和检索而准备。</p>
-<h4 id="1-1-etcd-的应用场景"><a href="#1-1-etcd-的应用场景" class="headerlink" title="1.1 etcd 的应用场景:"></a>1.1 etcd 的应用场景:</h4><ul>
-<li>服务发现</li>
-<li>消息发布和订阅</li>
-<li>负载均衡</li>
-<li>分布式锁、分布式队列</li>
-<li>集群监控和 leader 竞选</li>
-</ul>
-<h3 id="2-etcd-的基本操作"><a href="#2-etcd-的基本操作" class="headerlink" title="2. etcd 的基本操作"></a>2. etcd 的基本操作</h3><ul>
-<li>通过 http 进行通信</li>
-<li>通过 etcdctl 连接进行操作</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/20230416/etcd-intro-md/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230416/redis-intro-md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="BYT0723">
-      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BYT0723的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/20230416/redis-intro-md/" class="post-title-link" itemprop="url">Redis</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-04-16 08:33:18" itemprop="dateCreated datePublished" datetime="2023-04-16T08:33:18+08:00">2023-04-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-05 22:25:01" itemprop="dateModified" datetime="2023-05-05T22:25:01+08:00">2023-05-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NoSQL/" itemprop="url" rel="index"><span itemprop="name">NoSQL</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/20230416/redis-intro-md/" class="post-meta-item leancloud_visitors" data-flag-title="Redis" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/20230416/redis-intro-md/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/20230416/redis-intro-md/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="1-redis-简介"><a href="#1-redis-简介" class="headerlink" title="1. redis 简介"></a>1. redis 简介</h3><p>redis 是内存型 NoSQL 数据库，因其使用内存存储，性能优越，其读写速度远超其他类型的数据库。</p>
-<h4 id="1-1-redis-的应用场景"><a href="#1-1-redis-的应用场景" class="headerlink" title="1.1 redis 的应用场景"></a>1.1 redis 的应用场景</h4><ul>
-<li>缓存：使用 redis 存储一些常用的主要数据可以提升响应速度（redis 和数据库的数据一致性）</li>
-<li>高速读写场合：在高频次读写操作时，数据库的响应就会显著降低。而这时，使用 redis 进行高速读写，在读写结束时，异步将数据写入数据库中</li>
-</ul>
-<h3 id="2-redis-的数据类型和基本操作"><a href="#2-redis-的数据类型和基本操作" class="headerlink" title="2.redis 的数据类型和基本操作"></a>2.redis 的数据类型和基本操作</h3><h4 id="2-1-redis-的数据类型"><a href="#2-1-redis-的数据类型" class="headerlink" title="2.1 redis 的数据类型"></a>2.1 redis 的数据类型</h4><ul>
-<li>String(二进制安全，可以存储任何数据，例如 jpg 或其他序列化字节，最大存储 512MB)</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">update or (create <span class="keyword">if</span> not exist)</span></span><br><span class="line">set [key] [value]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">search key</span></span><br><span class="line">get [key]</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Hash</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">update or (create <span class="keyword">if</span> not exist) field</span></span><br><span class="line">hset [key] [field1] [value1] […] […]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">search field of hset key</span></span><br><span class="line">hget [key] [field1]</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>List(按照插入顺序排序)</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">队列</span></span><br><span class="line">lpush [key] [value1]</span><br><span class="line">lpush [key] [value2]</span><br><span class="line"></span><br><span class="line">rpop [key]</span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">value1</span></span><br><span class="line">rpop [key]</span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">value2</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-------</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">栈</span></span><br><span class="line">lpush [key] [value1]</span><br><span class="line">lpush [key] [value2]</span><br><span class="line"></span><br><span class="line">lpop [key]</span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">value2</span></span><br><span class="line">lpop [key]</span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">value1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Set(String 的无序集合)</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">add</span></span><br><span class="line">sadd [key] [member1]</span><br><span class="line">sadd [key] [member2]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看<span class="built_in">set</span>中所有元素</span></span><br><span class="line">smembers [key]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Zset(有序集合，通过关联分数从而有序)</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">zadd [key] [score] [member1]</span><br><span class="line">zadd [key] [score] [member2]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看zset中分为在[minScore, maxScore]中的元素</span></span><br><span class="line">zrangebyscore [key] [minScore] [maxScore]</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-2-发布订阅-消息通信模式"><a href="#2-2-发布订阅-消息通信模式" class="headerlink" title="2.2 发布订阅(消息通信模式)"></a>2.2 发布订阅(消息通信模式)</h4><ol>
-<li>一个或多个客户端通过<code>subscribe [channel_key]</code>订阅频道</li>
-<li>服务端通过<code>publish [channel_key] [msg]</code>发布消息，每个订阅的客户端都会受到消息</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">client1</span></span><br><span class="line">subscribe msg_channel</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">client2</span></span><br><span class="line">subscribe msg_channel</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">server</span></span><br><span class="line">publish msg_channel &quot;hello world&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="2-3-事务"><a href="#2-3-事务" class="headerlink" title="2.3 事务"></a>2.3 事务</h4><p>和数据库业务不同，redis 事务非原子性，且事务中某个操作失败，不会回滚，也不会停止事务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开启事务</span></span><br><span class="line">multi</span><br><span class="line"></span><br><span class="line">[cmd …]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">监视keys, 在事务执行前，有被监视的key被改动，则事务将会被打断(`unwatch [key] […]`取消监视)</span></span><br><span class="line">watch [key] […]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">执行事务</span></span><br><span class="line">exec</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">取消事务</span></span><br><span class="line">discard</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-4-数据备份和恢复"><a href="#2-4-数据备份和恢复" class="headerlink" title="2.4 数据备份和恢复"></a>2.4 数据备份和恢复</h4><p>……</p>
-<h4 id="2-5-Redis-管道"><a href="#2-5-Redis-管道" class="headerlink" title="2.5 Redis 管道"></a>2.5 Redis 管道</h4><p>……</p>
-<h3 id="3-Reids-淘汰策略"><a href="#3-Reids-淘汰策略" class="headerlink" title="3. Reids 淘汰策略"></a>3. Reids 淘汰策略</h3><p>当内存超出物理内存限制，就会使用 swap 或虚拟内存，这都是和磁盘进行交换，会导致 redis 的性能大打折扣。<br>所以生产环境中，都会设置<code>maxmemory</code>参数限制 redis 最大占用。当 redis 内存占用超过<code>maxmemory</code>后，新的数据无法写入，<br>redis 提供了几种淘汰策略，清理数据用于存放新的数据。</p>
-<ul>
-<li>noeviction(default): 不可写入新的数据，也不会丢弃数据</li>
-<li>volatile-lru: 淘汰具有过期时间且最近最少使用的 key</li>
-<li>allkeys-lru: 淘汰最近最少使用的 key</li>
-<li>volatile-ttl: 淘汰具有过期时间且 ttl 最小的 key</li>
-<li>volatile-random: 随机淘汰具有过期时间的 key</li>
-<li>allkeys-random: 随机淘汰 key</li>
-</ul>
-<h4 id="3-1-近似-LRU-算法"><a href="#3-1-近似-LRU-算法" class="headerlink" title="3.1 近似 LRU 算法"></a>3.1 近似 LRU 算法</h4><p>Redis 使用近似 LRU 算法，因为 LRU 算法还需要一个链表按照访问时间顺序保存节点，这将占用大量的额外内存，<br>近似 LRU 算法是 Redis 在现有的数据结构基础上使用随机采样法来淘汰元素，可以达到与 LRU 算法非常近似的效果，Redis 给每个 key 增加了一个额外的小字段，长度为 24 个 bit，用于保存最后一次访问的时间戳。</p>
-<h4 id="3-2-随机采样"><a href="#3-2-随机采样" class="headerlink" title="3.2 随机采样"></a>3.2 随机采样</h4><p>近似 LRU 算法触发是在 Redis 执行写操作时，发现内存超出 maxmemory 的值了，就会执行一次该算法，通过随机采样出 maxmemory_samples (默认值为 5) 个 key，然后淘汰掉最旧的一个 key，如果淘汰后内存还是超出 maxmemory，那就继续随机采样淘汰，直到低于 maxmemory。<br>采样的数据根据 maxmemory-policy 的设置决定，如果是 allkeys，在所有的字典 key 中进行采样，如果是 volatile，则在具有过期时间 key 的字典中采样，采样的数量根据 maxmemory_samples 配置得来，采样数量越大，近似 LRU 算法的效果越接近严格 LRU 算法，<br>同时在 Redis3.0 中，还增加了一个淘汰池数组，大小是 maxmemory_samples，在每一次淘汰循环中，新的采样出来的 key 会和淘汰池中的 key 进行融合，淘汰掉最旧的一个 key，然后将剩余最旧的 key 列表放入淘汰池，等待下次循环。</p>
-<h3 id="4-Redis-集群"><a href="#4-Redis-集群" class="headerlink" title="4. Redis 集群"></a>4. Redis 集群</h3><ul>
-<li><p>主从复制</p>
-</li>
-<li><p>sentinel 模式(哨兵)</p>
-</li>
-<li><p>cluster 模式</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230410/golang-cpu-schedula/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="BYT0723">
-      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BYT0723的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/20230410/golang-cpu-schedula/" class="post-title-link" itemprop="url">Go的cpu调度</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-04-10 17:02:50" itemprop="dateCreated datePublished" datetime="2023-04-10T17:02:50+08:00">2023-04-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-05 22:25:01" itemprop="dateModified" datetime="2023-05-05T22:25:01+08:00">2023-05-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Language/" itemprop="url" rel="index"><span itemprop="name">Language</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/20230410/golang-cpu-schedula/" class="post-meta-item leancloud_visitors" data-flag-title="Go的cpu调度" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/20230410/golang-cpu-schedula/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/20230410/golang-cpu-schedula/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="1-调度模型-GPM"><a href="#1-调度模型-GPM" class="headerlink" title="1. 调度模型 GPM"></a>1. 调度模型 GPM</h3>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230410/golang-interview-questions/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="BYT0723">
-      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BYT0723的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/20230410/golang-interview-questions/" class="post-title-link" itemprop="url">Go面试问题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-04-10 13:53:25" itemprop="dateCreated datePublished" datetime="2023-04-10T13:53:25+08:00">2023-04-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-05 22:25:01" itemprop="dateModified" datetime="2023-05-05T22:25:01+08:00">2023-05-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Language/" itemprop="url" rel="index"><span itemprop="name">Language</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/20230410/golang-interview-questions/" class="post-meta-item leancloud_visitors" data-flag-title="Go面试问题" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/20230410/golang-interview-questions/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/20230410/golang-interview-questions/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li><h3 id="Slice-扩容机制"><a href="#Slice-扩容机制" class="headerlink" title="Slice 扩容机制"></a>Slice 扩容机制</h3><ul>
-<li>当 newLen &gt;&#x3D; 2 * cap, 则 newCap &#x3D; newLen</li>
-<li>当 newLen &lt; 2 * cap<ul>
-<li>如果 cap &lt; 256, 则 newCap &#x3D; 2 * cap</li>
-<li>如果 cap &gt;&#x3D; 256, 则 newCap &#x3D; cap + (cap + 3 * threshold) &#x2F; 4, 即 1.25 倍容量+ 0.75 倍阈值的平滑因子, 平滑因子在各个阈值阶段也会不同<table>
-<thead>
-<tr>
-<th align="center">starting cap</th>
-<th align="center">growth factor</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">256</td>
-<td align="center">2.0</td>
-</tr>
-<tr>
-<td align="center">512</td>
-<td align="center">1.63</td>
-</tr>
-<tr>
-<td align="center">1024</td>
-<td align="center">1.44</td>
-</tr>
-<tr>
-<td align="center">2048</td>
-<td align="center">1.35</td>
-</tr>
-<tr>
-<td align="center">4096</td>
-<td align="center">1.30</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230410/sql-optimization-strategy/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="BYT0723">
-      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BYT0723的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/20230410/sql-optimization-strategy/" class="post-title-link" itemprop="url">SQL优化策略</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-04-10 09:15:03" itemprop="dateCreated datePublished" datetime="2023-04-10T09:15:03+08:00">2023-04-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-05 22:25:01" itemprop="dateModified" datetime="2023-05-05T22:25:01+08:00">2023-05-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/20230410/sql-optimization-strategy/" class="post-meta-item leancloud_visitors" data-flag-title="SQL优化策略" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/20230410/sql-optimization-strategy/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/20230410/sql-optimization-strategy/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="1-MYSQL-优化的几个原则"><a href="#1-MYSQL-优化的几个原则" class="headerlink" title="1. MYSQL 优化的几个原则"></a>1. MYSQL 优化的几个原则</h3><ul>
-<li>减少数据访问：设置合理的字段类型，启用压缩，通过索引访问等减少磁盘 IO</li>
-<li>返回更少的数据：只返回需要的字段和数据分页处理，减少磁盘和网络 IO</li>
-<li>减少交互次数：批量 DML 操作，函数存储等减少数据连接次数</li>
-<li>利用更多资源：使用表分区，并增加并行操作，更大限度利用 CPU 资源</li>
-</ul>
-<p>总结一下</p>
-<ul>
-<li>最大化利用索引</li>
-<li>尽可能避免全表扫描</li>
-<li>减少无效数据的查询</li>
-</ul>
-<h3 id="2-优化策略"><a href="#2-优化策略" class="headerlink" title="2. 优化策略"></a>2. 优化策略</h3><blockquote>
-<p>声明：以下 SQL 优化策略适用于数据量较大的场景下，如果数据量较小，没必要以此为准，以免画蛇添足。</p>
-</blockquote>
-<h4 id="2-1-避免不走索引的场景"><a href="#2-1-避免不走索引的场景" class="headerlink" title="2.1 避免不走索引的场景"></a>2.1 避免不走索引的场景</h4><ol>
-<li>尽量避免在字段开头模糊查询，会导致数据库引擎放弃索引，进行全表扫描</li>
-</ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># bad</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> t <span class="keyword">WHERE</span> username <span class="keyword">LIKE</span> <span class="string">&#x27;%王%&#x27;</span></span><br><span class="line"># good</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> t <span class="keyword">WHERE</span> username <span class="keyword">LIKE</span> <span class="string">&#x27;王%&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>如果需要在前面使用模糊查询，提供几个解决思路：</p>
-<pre><code>- 使用 MySQL 内置函数`INSTR(str, substr)`来匹配
-- 使用 FullText 全文索引，用 match against 检索
-- 数据量较大的情况，建议引入ElasticSearch、solr，亿级数据量检索速度秒级
-- 当表数据量较少（几千条左右），直接`like &#39;%xx%&#39;`
-</code></pre>
-<ol start="2">
-<li>尽量避免使用<code>in</code> 和<code>not in</code>，当 in 的取值范围过大时，会导致索引失效，引擎走全表扫描</li>
-</ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># bad</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> t <span class="keyword">WHERE</span> id <span class="keyword">IN</span> (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>如果是连续数据，可用<code>between</code>代替</li>
-<li>如果是子查询，可以用<code>exists</code>代替,<strong>当 where 中仅有一个 exists 加子查询时，走全表扫描</strong></li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> t <span class="keyword">WHERE</span> id <span class="keyword">Between</span> <span class="number">2</span> <span class="keyword">and</span> <span class="number">9</span>;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230410/golang-memory-management/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="BYT0723">
-      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BYT0723的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/20230410/golang-memory-management/" class="post-title-link" itemprop="url">Go内存管理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-04-10 08:17:03" itemprop="dateCreated datePublished" datetime="2023-04-10T08:17:03+08:00">2023-04-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-05 22:25:01" itemprop="dateModified" datetime="2023-05-05T22:25:01+08:00">2023-05-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Language/" itemprop="url" rel="index"><span itemprop="name">Language</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/20230410/golang-memory-management/" class="post-meta-item leancloud_visitors" data-flag-title="Go内存管理" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/20230410/golang-memory-management/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/20230410/golang-memory-management/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <!--toc:start-->
-
-<ul>
-<li><a href="#%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84">基本架构</a></li>
-<li><a href="#%E5%A4%A7%E5%B0%8F%E5%AF%B9%E8%B1%A1">大小对象</a></li>
-<li><a href="#%E9%80%83%E9%80%B8%E5%88%86%E6%9E%90">逃逸分析</a><!--toc:end--></li>
-</ul>
-<blockquote>
-<p>原文：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/76802887">详解 Go 语言的内存模型及堆的分配管理</a> ,建议 tm 反复观看</p>
-</blockquote>
-<p>golang 的内存管理是借鉴了 TCMalloc(Thread Cache Malloc)，随着 Go 的迭代，Go 的内存管理与 TCMalloc 不一致的地方也在扩大，但其主要思想是一致的。只是比 TCMalloc 多了<strong>逃逸分析</strong>和<strong>垃圾回收</strong>。</p>
-<h4 id="基本架构"><a href="#基本架构" class="headerlink" title="基本架构"></a>基本架构</h4><p><img src="https://pic4.zhimg.com/80/v2-1aa731ddd77b6cad73c8f68f864ea5ef_720w.webp" alt="架构"></p>
-<ul>
-<li>page: 图中的浅蓝方块,在 x86 架构中一个 page 大小为 8KB</li>
-<li>span: 内存管理的基本单位，由一组连续的 page 组成,图中的浅蓝长方形和紫色方块</li>
-<li>mcache: mcache 保存的是各种大小的 Span，并按 Span class 分类，小对象直接从 mcache 分配内存，它起到了缓存的作用，并且可以无锁访问。Go 中是每个 P 拥有 1 个 mcache。在 Go 程序中，当前最多有 GOMAXPROCS 个线程在运行，所以最多需要 GOMAXPROCS 个 mcache 就可以保证各线程对 mcache 的无锁访问，线程的运行又是与 P 绑定的，把 mcache 交给 P 刚刚好。</li>
-<li>mcentral: 所有线程共享的缓存，需要加锁访问。按 Span class 对 Span 分类，然后串联成链表，当 mcache 的某个 class 的 Span 的内存被分配光时，它会向 mcentral 申请 1 个当前级别的 Span。</li>
-<li>mheap: 堆内存的抽象，把从 OS 申请出的内存页组织成 Span，并保存起来。当 mcentral 的 Span 不够用时会向 mheap 申请内存，而 mheap 的 Span 不够用时会向 OS 申请内存。mheap 向 OS 的内存申请是按页来的，然后把申请来的内存页生成 Span 组织起来，同样也是需要加锁访问的。mheap 把 Span 组织成了树结构，共 2 棵树，然后把 Span 分配到 heapArena 进行管理，它包含地址映射和 span 是否包含指针等位图，这样做的主要原因是为了更高效的利用内存：分配、回收和再利用。</li>
-</ul>
-<h4 id="大小对象"><a href="#大小对象" class="headerlink" title="大小对象"></a>大小对象</h4><p><img src="https://pic4.zhimg.com/80/v2-14196cbb8fc199f5257fd94617210557_720w.webp" alt="对象分类"></p>
-<ul>
-<li>小对象(&lt;&#x3D; 32KB)直接在 mcache 中分配</li>
-<li>大对象(&gt; 32KB)直接从 mheap 中分配</li>
-</ul>
-<h4 id="逃逸分析"><a href="#逃逸分析" class="headerlink" title="逃逸分析"></a>逃逸分析</h4><blockquote>
-<p>原文见：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/91559562">golang 逃逸分析详解</a> ,建议 tmd 反复观看</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">go run -gcflags &quot;-m -l&quot; main.go</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">      -m    打印逃逸分析信息</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">      -l    禁止内联编译)</span></span><br></pre></td></tr></table></figure>
-
-<p>逃逸规则如下：</p>
-<ol>
-<li>在某个函数内部<strong>new 生成的指针</strong>或者<strong>字面量的指针</strong>被当成函数返回值，则该变量一定发生了逃逸(构造函数返回的指针一定逃逸)</li>
-<li>被 slice、map、chan 引用的<strong>指针</strong>一定发生了逃逸<blockquote>
-<p>stack overflow 上有人提问为什么使用指针的 chan 比使用值的 chan 慢 30%，答案就在这里：使用指针的 chan 发生逃逸，gc 拖慢了速度。<a href="https://link.zhihu.com/?target=https://stackoverflow.com/questions/41178729/why-passing-pointers-to-channel-is-slower">Why passing pointers to channel is slower</a></p>
-</blockquote>
-</li>
-<li>被<strong>已经逃逸的变量引用的指针</strong>一定发生了逃逸</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230408/transport-layout/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="BYT0723">
-      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BYT0723的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/20230408/transport-layout/" class="post-title-link" itemprop="url">传输层</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-04-08 10:40:33" itemprop="dateCreated datePublished" datetime="2023-04-08T10:40:33+08:00">2023-04-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-05 22:25:01" itemprop="dateModified" datetime="2023-05-05T22:25:01+08:00">2023-05-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Network/" itemprop="url" rel="index"><span itemprop="name">Network</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/20230408/transport-layout/" class="post-meta-item leancloud_visitors" data-flag-title="传输层" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/20230408/transport-layout/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/20230408/transport-layout/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230408/udp-intro/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="BYT0723">
-      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BYT0723的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/20230408/udp-intro/" class="post-title-link" itemprop="url">UDP</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-04-08 09:46:41" itemprop="dateCreated datePublished" datetime="2023-04-08T09:46:41+08:00">2023-04-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-05 22:25:01" itemprop="dateModified" datetime="2023-05-05T22:25:01+08:00">2023-05-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Network/" itemprop="url" rel="index"><span itemprop="name">Network</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/20230408/udp-intro/" class="post-meta-item leancloud_visitors" data-flag-title="UDP" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/20230408/udp-intro/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/20230408/udp-intro/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <!--toc:start-->
-
-<ul>
-<li><a href="#1-udp-%E6%8A%A5%E6%96%87%E7%BB%93%E6%9E%84">1. UDP 报文结构</a></li>
-<li><a href="#2-udp-%E6%A3%80%E9%AA%8C%E5%92%8C">2. UDP 检验和</a></li>
-<li><a href="#3-udp-%E7%9B%B8%E5%AF%B9%E4%BA%8E-tcp-%E7%9A%84%E4%BC%98%E5%8A%BF">3. UDP 相对于 TCP 的优势</a><!--toc:end--></li>
-</ul>
-<blockquote>
-<p>UDP 协议仅仅在提供了复用&#x2F;分解功能和少量的差错检验</p>
-</blockquote>
-<h3 id="1-UDP-报文结构"><a href="#1-UDP-报文结构" class="headerlink" title="1. UDP 报文结构"></a>1. UDP 报文结构</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 代码示例，真正报文结构为二进制</span></span><br><span class="line"><span class="keyword">type</span> <span class="keyword">struct</span> udp &#123;</span><br><span class="line">    <span class="comment">// header</span></span><br><span class="line">    source_port <span class="type">int16</span> <span class="comment">//源端端口</span></span><br><span class="line">    target_port <span class="type">int16</span> <span class="comment">//目的端口</span></span><br><span class="line">    length      <span class="type">int16</span> <span class="comment">//长度</span></span><br><span class="line">    checksum    <span class="type">int16</span> <span class="comment">//检验和</span></span><br><span class="line">    <span class="comment">// body</span></span><br><span class="line">    data        any</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>头部共四个字段，每个字段由两个字节组成，共计 8 个字节</p>
-<h3 id="2-UDP-检验和"><a href="#2-UDP-检验和" class="headerlink" title="2. UDP 检验和"></a>2. UDP 检验和</h3><p>计算检验和时，加入伪头部</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="keyword">struct</span> udp_virtual_header &#123;</span><br><span class="line">    source_ip  <span class="type">int32</span></span><br><span class="line">    target_ip  <span class="type">int32</span></span><br><span class="line">    _          <span class="type">int8</span></span><br><span class="line">    udp_type   <span class="type">int8</span></span><br><span class="line">    udp_length <span class="type">int16</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>将伪头部和报文中所有 16bit 字(2Byte)相加，data 最后不足 16bit 补零。溢出位回卷(回卷：溢出位和 16bit 相加)，然后进行反码运算。<br>在校验时，将伪头部和报文中所有 16bit 字相加，和为 1111111111111111 则校验成功，反之失败,说明报文受损。</p>
-<h3 id="3-UDP-相对于-TCP-的优势"><a href="#3-UDP-相对于-TCP-的优势" class="headerlink" title="3. UDP 相对于 TCP 的优势"></a>3. UDP 相对于 TCP 的优势</h3><ul>
-<li>没有拥塞控制，更适合及时性质的传输</li>
-<li>无需建立连接，相比于 TCP 有更低的时延</li>
-<li>无状态连接，无需像 TCP 一般维护连接的参数（例如：接受和发送缓存、拥塞控制参数、序号和确认号等）</li>
-<li>首部开销更小，UDP 头部 8Byte, TCP 首部 20Byte</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1426,20 +1412,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

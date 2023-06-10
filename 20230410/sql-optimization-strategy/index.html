@@ -12,12 +12,12 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=LXGW WenKai:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"byt0723.xyz","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"byt0723.xyz","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="1. MYSQL 优化的几个原则 减少数据访问：设置合理的字段类型，启用压缩，通过索引访问等减少磁盘 IO 返回更少的数据：只返回需要的字段和数据分页处理，减少磁盘和网络 IO 减少交互次数：批量 DML 操作，函数存储等减少数据连接次数 利用更多资源：使用表分区，并增加并行操作，更大限度利用 CPU 资源  总结一下  最大化利用索引 尽可能避免全表扫描 减少无效数据的查询  2. 优化策略 声">
@@ -28,7 +28,7 @@
 <meta property="og:description" content="1. MYSQL 优化的几个原则 减少数据访问：设置合理的字段类型，启用压缩，通过索引访问等减少磁盘 IO 返回更少的数据：只返回需要的字段和数据分页处理，减少磁盘和网络 IO 减少交互次数：批量 DML 操作，函数存储等减少数据连接次数 利用更多资源：使用表分区，并增加并行操作，更大限度利用 CPU 资源  总结一下  最大化利用索引 尽可能避免全表扫描 减少无效数据的查询  2. 优化策略 声">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-10T01:15:03.000Z">
-<meta property="article:modified_time" content="2023-05-05T14:25:01.771Z">
+<meta property="article:modified_time" content="2023-05-16T00:50:34.600Z">
 <meta property="article:author" content="BYT0723">
 <meta property="article:tag" content="MySQL">
 <meta property="article:tag" content="Postgres">
@@ -101,7 +101,7 @@
       <h1 class="site-title">BYT0723的博客</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">BYT0723's Blog</p>
+      <p class="site-subtitle" itemprop="description">Record Programming</p>
   </div>
 
   <div class="site-nav-right">
@@ -193,7 +193,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-05 22:25:01" itemprop="dateModified" datetime="2023-05-05T22:25:01+08:00">2023-05-05</time>
+                <time title="修改时间：2023-05-16 08:50:34" itemprop="dateModified" datetime="2023-05-16T08:50:34+08:00">2023-05-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -258,11 +258,12 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># bad</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> t <span class="keyword">WHERE</span> username <span class="keyword">LIKE</span> <span class="string">&#x27;%王%&#x27;</span></span><br><span class="line"># good</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> t <span class="keyword">WHERE</span> username <span class="keyword">LIKE</span> <span class="string">&#x27;王%&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <p>如果需要在前面使用模糊查询，提供几个解决思路：</p>
-<pre><code>- 使用 MySQL 内置函数`INSTR(str, substr)`来匹配
-- 使用 FullText 全文索引，用 match against 检索
-- 数据量较大的情况，建议引入ElasticSearch、solr，亿级数据量检索速度秒级
-- 当表数据量较少（几千条左右），直接`like &#39;%xx%&#39;`
-</code></pre>
+<ul>
+<li>使用 MySQL 内置函数<code>INSTR(str, substr)</code>来匹配</li>
+<li>使用 FullText 全文索引，用 match against 检索</li>
+<li>数据量较大的情况，建议引入 ElasticSearch、solr，亿级数据量检索速度秒级</li>
+<li>当表数据量较少（几千条左右），直接<code>like &#39;%xx%&#39;</code></li>
+</ul>
 <ol start="2">
 <li>尽量避免使用<code>in</code> 和<code>not in</code>，当 in 的取值范围过大时，会导致索引失效，引擎走全表扫描</li>
 </ol>
@@ -270,10 +271,27 @@
 
 <ul>
 <li>如果是连续数据，可用<code>between</code>代替</li>
-<li>如果是子查询，可以用<code>exists</code>代替,<strong>当 where 中仅有一个 exists 加子查询时，走全表扫描</strong></li>
+<li>如果是子查询，可以用<code>exists</code>代替</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> t <span class="keyword">WHERE</span> id <span class="keyword">Between</span> <span class="number">2</span> <span class="keyword">and</span> <span class="number">9</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> t <span class="keyword">WHERE</span> id <span class="keyword">Between</span> <span class="number">2</span> <span class="keyword">and</span> <span class="number">9</span>;</span><br><span class="line"></span><br><span class="line"># bad</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> t <span class="keyword">WHERE</span> id <span class="keyword">IN</span> (<span class="keyword">SELECT</span> id <span class="keyword">FROM</span> t2)</span><br><span class="line"># good</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> t <span class="keyword">WHERE</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> id <span class="keyword">FROM</span> t2 <span class="keyword">WHERE</span> t1.id <span class="operator">=</span> t2.id)</span><br><span class="line">#</span><br></pre></td></tr></table></figure>
 
+<ol start="3">
+<li><p>尽量避免使用 or 连接<strong>未使用索引的条件</strong>，或像 IN 这种<strong>过滤范围不大</strong>的条件，会导致引擎走全表扫描</p>
+</li>
+<li><p>尽量避免使用 NULL 值判断，NULL 判断会导致引擎走全表扫描</p>
+</li>
+<li><p>尽量避免在条件<strong>等式的左侧</strong>进行<strong>表示式</strong>或<strong>函数</strong>操作，会导致引擎走全表扫描</p>
+</li>
+<li><p>尽量避免使用<code>&lt;&gt;</code>或<code>!=</code>，会导致引擎走全表扫描。</p>
+</li>
+<li><p>使用联合索引检索时，MySQl 联合索引<strong>最左匹配原则</strong>, 即 ABC 索引，条件为 AC 或 BC 都无法使用索引，但 A,AB 可以</p>
+</li>
+<li><p>隐式类型转换造成不使用索引</p>
+</li>
+<li><p>order by 的字段如果没有索引的话，将会进行全表扫描</p>
+</li>
+</ol>
+<h4 id="2-2-SELECT-的其他优化"><a href="#2-2-SELECT-的其他优化" class="headerlink" title="2.2 SELECT 的其他优化"></a>2.2 SELECT 的其他优化</h4>
     </div>
 
     
@@ -297,7 +315,7 @@
       <i class="fa fa-chevron-left"></i> Go内存管理
     </a></div>
       <div class="post-nav-item">
-    <a href="/20230410/golang-interview-questions/" rel="next" title="Go面试问题">
+    <a href="/20230410/golang-interview/" rel="next" title="Go面试问题">
       Go面试问题 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -359,7 +377,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-MYSQL-%E4%BC%98%E5%8C%96%E7%9A%84%E5%87%A0%E4%B8%AA%E5%8E%9F%E5%88%99"><span class="nav-number">1.</span> <span class="nav-text">1. MYSQL 优化的几个原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5"><span class="nav-number">2.</span> <span class="nav-text">2. 优化策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E9%81%BF%E5%85%8D%E4%B8%8D%E8%B5%B0%E7%B4%A2%E5%BC%95%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 避免不走索引的场景</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-MYSQL-%E4%BC%98%E5%8C%96%E7%9A%84%E5%87%A0%E4%B8%AA%E5%8E%9F%E5%88%99"><span class="nav-number">1.</span> <span class="nav-text">1. MYSQL 优化的几个原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5"><span class="nav-number">2.</span> <span class="nav-text">2. 优化策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E9%81%BF%E5%85%8D%E4%B8%8D%E8%B5%B0%E7%B4%A2%E5%BC%95%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 避免不走索引的场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-SELECT-%E7%9A%84%E5%85%B6%E4%BB%96%E4%BC%98%E5%8C%96"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 SELECT 的其他优化</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -375,20 +393,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

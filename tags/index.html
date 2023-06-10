@@ -12,12 +12,12 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=LXGW WenKai:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"byt0723.xyz","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"byt0723.xyz","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
@@ -101,7 +101,7 @@
       <h1 class="site-title">BYT0723的博客</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">BYT0723's Blog</p>
+      <p class="site-subtitle" itemprop="description">Record Programming</p>
   </div>
 
   <div class="site-nav-right">
@@ -183,10 +183,10 @@
       <div class="post-body">
           <div class="tag-cloud">
             <div class="tag-cloud-title">
-              目前共计 15 个标签
+              目前共计 23 个标签
             </div>
             <div class="tag-cloud-tags">
-              <a href="/tags/Arch/" style="font-size: 21px; color: #6f6f6f">Arch</a> <a href="/tags/Etcd/" style="font-size: 12px; color: #ccc">Etcd</a> <a href="/tags/Golang/" style="font-size: 30px; color: #111">Golang</a> <a href="/tags/HTTP/" style="font-size: 12px; color: #ccc">HTTP</a> <a href="/tags/KeyValueDB/" style="font-size: 12px; color: #ccc">KeyValueDB</a> <a href="/tags/Linux/" style="font-size: 12px; color: #ccc">Linux</a> <a href="/tags/Locker/" style="font-size: 12px; color: #ccc">Locker</a> <a href="/tags/Magnet-Link/" style="font-size: 12px; color: #ccc">Magnet Link</a> <a href="/tags/MySQL/" style="font-size: 12px; color: #ccc">MySQL</a> <a href="/tags/Postgres/" style="font-size: 12px; color: #ccc">Postgres</a> <a href="/tags/Redis/" style="font-size: 12px; color: #ccc">Redis</a> <a href="/tags/Service-Discovery/" style="font-size: 12px; color: #ccc">Service Discovery</a> <a href="/tags/Transport-Layout/" style="font-size: 12px; color: #ccc">Transport Layout</a> <a href="/tags/UDP/" style="font-size: 12px; color: #ccc">UDP</a> <a href="/tags/aotmic/" style="font-size: 12px; color: #ccc">aotmic</a>
+              <a href="/tags/Algorithm/" style="font-size: 12px; color: #ccc">Algorithm</a> <a href="/tags/Arch/" style="font-size: 21px; color: #6f6f6f">Arch</a> <a href="/tags/Etcd/" style="font-size: 12px; color: #ccc">Etcd</a> <a href="/tags/Golang/" style="font-size: 30px; color: #111">Golang</a> <a href="/tags/HTTP/" style="font-size: 12px; color: #ccc">HTTP</a> <a href="/tags/KeyValueDB/" style="font-size: 12px; color: #ccc">KeyValueDB</a> <a href="/tags/Linux/" style="font-size: 16.5px; color: #9d9d9d">Linux</a> <a href="/tags/Locker/" style="font-size: 12px; color: #ccc">Locker</a> <a href="/tags/Lua/" style="font-size: 12px; color: #ccc">Lua</a> <a href="/tags/Magnet-Link/" style="font-size: 12px; color: #ccc">Magnet Link</a> <a href="/tags/MySQL/" style="font-size: 12px; color: #ccc">MySQL</a> <a href="/tags/Network/" style="font-size: 12px; color: #ccc">Network</a> <a href="/tags/OS/" style="font-size: 12px; color: #ccc">OS</a> <a href="/tags/Postgres/" style="font-size: 12px; color: #ccc">Postgres</a> <a href="/tags/Redis/" style="font-size: 12px; color: #ccc">Redis</a> <a href="/tags/SQL/" style="font-size: 12px; color: #ccc">SQL</a> <a href="/tags/Service-Discovery/" style="font-size: 12px; color: #ccc">Service Discovery</a> <a href="/tags/String/" style="font-size: 12px; color: #ccc">String</a> <a href="/tags/Transport-Layout/" style="font-size: 12px; color: #ccc">Transport Layout</a> <a href="/tags/UDP/" style="font-size: 12px; color: #ccc">UDP</a> <a href="/tags/aotmic/" style="font-size: 12px; color: #ccc">aotmic</a> <a href="/tags/common/" style="font-size: 12px; color: #ccc">common</a> <a href="/tags/interview/" style="font-size: 25.5px; color: #404040">interview</a>
             </div>
           </div>
         
@@ -266,20 +266,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
