@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"byt0723.xyz","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="1.前言 2.安装 Xorg 3.驱动安装 4.安装 4.1 安装 Dwm 4.2 终端安装 4.3 脚本安装   5.启动 5.1 使用 startx 5.2 使用启动管理器   6. 其他配置  1.前言你需要确保你已经安装好了 Arch 或其他发行版的 Linux,并且已经接入互联网、配置好了你的 pacman.conf 和 mirrorlist  Tips: 如果您已接触过其他桌面管">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arch安装Dwm">
+<meta property="og:url" content="http://byt0723.xyz/20230610/archlinux-xorg-dwm/">
+<meta property="og:site_name" content="BYT0723的博客">
+<meta property="og:description" content="1.前言 2.安装 Xorg 3.驱动安装 4.安装 4.1 安装 Dwm 4.2 终端安装 4.3 脚本安装   5.启动 5.1 使用 startx 5.2 使用启动管理器   6. 其他配置  1.前言你需要确保你已经安装好了 Arch 或其他发行版的 Linux,并且已经接入互联网、配置好了你的 pacman.conf 和 mirrorlist  Tips: 如果您已接触过其他桌面管">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-10T07:22:13.000Z">
+<meta property="article:modified_time" content="2024-03-10T15:06:12.431Z">
+<meta property="article:author" content="BYT0723">
+<meta property="article:tag" content="Arch">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Dwm">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://byt0723.xyz/20230610/archlinux-xorg-dwm/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Arch安装Dwm | BYT0723的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">BYT0723的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Record Programming</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230610/archlinux-xorg-dwm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Arch安装Dwm
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-06-10 15:22:13" itemprop="dateCreated datePublished" datetime="2023-06-10T15:22:13+08:00">2023-06-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-03-10 23:06:12" itemprop="dateModified" datetime="2024-03-10T23:06:12+08:00">2024-03-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230610/archlinux-xorg-dwm/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230610/archlinux-xorg-dwm/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <!--toc:start-->
+
+<ul>
+<li><a href="#1%E5%89%8D%E8%A8%80">1.前言</a></li>
+<li><a href="#2%E5%AE%89%E8%A3%85-xorg">2.安装 Xorg</a></li>
+<li><a href="#3%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85">3.驱动安装</a></li>
+<li><a href="#4%E5%AE%89%E8%A3%85">4.安装</a><ul>
+<li><a href="#41-%E5%AE%89%E8%A3%85-dwm">4.1 安装 Dwm</a></li>
+<li><a href="#42-%E7%BB%88%E7%AB%AF%E5%AE%89%E8%A3%85">4.2 终端安装</a></li>
+<li><a href="#43-%E8%84%9A%E6%9C%AC%E5%AE%89%E8%A3%85">4.3 脚本安装</a></li>
+</ul>
+</li>
+<li><a href="#5%E5%90%AF%E5%8A%A8">5.启动</a><ul>
+<li><a href="#51-%E4%BD%BF%E7%94%A8-startx">5.1 使用 startx</a></li>
+<li><a href="#52-%E4%BD%BF%E7%94%A8%E5%90%AF%E5%8A%A8%E7%AE%A1%E7%90%86%E5%99%A8">5.2 使用启动管理器</a></li>
+</ul>
+</li>
+<li><a href="#6-%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE">6. 其他配置</a><!--toc:end--></li>
+</ul>
+<h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h3><p>你需要确保你已经安装好了 Arch 或其他发行版的 Linux,并且已经接入互联网、配置好了你的 <code>pacman.conf</code> 和 <code>mirrorlist</code></p>
+<blockquote>
+<p>Tips: 如果您已接触过其他桌面管理器，可直接跳转至<a href="#4%E5%AE%89%E8%A3%85">安装</a></p>
+</blockquote>
+<h3 id="2-安装-Xorg"><a href="#2-安装-Xorg" class="headerlink" title="2.安装 Xorg"></a>2.安装 Xorg</h3><p>Xorg （通常简称为 X ）是 Linux 用户中最流行的显示服务器。 它无处不在，使其成为 GUI 应用程序永远存在的必要条件，从而导致大多数发行版的大量采用。<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Xorg">wiki</a><br>xorg 是 dwm 乃至大多数桌面环境的基础(hyprrland 除外).</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S xorg xorg-server xorg-apps</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>xorg-apps 中包括了很多有用的工具，例如<code>xrandr</code>、<code>xprop</code>、<code>xmodmap</code>、<code>xsetroot</code></p>
+</blockquote>
+<span id="more"></span>
+
+<h3 id="3-驱动安装"><a href="#3-驱动安装" class="headerlink" title="3.驱动安装"></a>3.驱动安装</h3><ol>
+<li>显卡</li>
+</ol>
+<ul>
+<li>intel <code>xf86-video-intel</code></li>
+<li>amd <code>xf86-video-amdgpu</code></li>
+<li>nvidia <code>nvidia-dkms</code></li>
+</ul>
+<ol start="2">
+<li>输入设备</li>
+</ol>
+<ul>
+<li><code>xf86-input-libinput</code></li>
+<li>触摸板<code>xf86-input-synaptics</code></li>
+</ul>
+<p>这是配置均可在<code>/etc/X11/xorg.conf.d/</code>下配置,细见<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Xorg#Input_devices">xorg wiki</a>,根据输入设备分类，查看 wiki 进行配置</p>
+<blockquote>
+<p>默认可不配置，在启动后发现设备不可用再配置也可</p>
+</blockquote>
+<h3 id="4-安装"><a href="#4-安装" class="headerlink" title="4.安装"></a>4.安装</h3><h4 id="4-1-安装-Dwm"><a href="#4-1-安装-Dwm" class="headerlink" title="4.1 安装 Dwm"></a>4.1 安装 Dwm</h4><blockquote>
+<p>Tips: 如果你安装的过程中需要大量使用 github 或国外的资源，建议先安装并配置好系统代理.</p>
+</blockquote>
+<ul>
+<li>从 suckless.org 从拉取最新的 dwm</li>
+<li>使用现成的<a target="_blank" rel="noopener" href="https://github.com/BYT0723/dwm">github</a>或<a target="_blank" rel="noopener" href="https://gitee.com/BYT0723/dwm">gitee</a></li>
+</ul>
+<p>因为我的现成的,所以我选择现成的.如果你一次接触 Dwm 或平铺式窗口管理器，建议使用最新的 Dwm,然后去安装补丁，或自主修改，虽然使用过程会曲折一些，但你会更加得心应手</p>
+<ol>
+<li>拉取 Dwm</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/BYT0723/dwm.git</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">无法访问github的朋友可</span></span><br><span class="line">git clone https://gitee.com/BYT0723/dwm.git</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>编译安装</li>
+</ol>
+<blockquote>
+<p>Tips: 此步操作需要<code>make</code>,如果没有的朋友可使用包管理工具进行安装</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd dwm</span><br><span class="line">sudo make clean install</span><br></pre></td></tr></table></figure>
+
+<p>dwm 将会被安装到<code>/usr/local/bin/</code>下</p>
+<h4 id="4-2-终端安装"><a href="#4-2-终端安装" class="headerlink" title="4.2 终端安装"></a>4.2 终端安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/BYT0723/st.git</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">无法访问github的朋友可</span></span><br><span class="line">git clone https://gitee.com/BYT0723/st.git</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以及</span></span><br><span class="line">sudo pacman -S alacritty</span><br></pre></td></tr></table></figure>
+
+<p>共安装了两个终端<code>st</code>和<code>alacritty</code>,st 和 dwm 更配，但最令人窒息的就是窗口大小改变时内容会丢失;alacritty 是 rust 编写的，并使用了 gpu 加速，速度更快.<br>在我的 Dwm 配置中 st 提供浮动终端，而 alacritty 供日常使用。alacritty 没有连字功能,st 有连字功能.</p>
+<h4 id="4-3-脚本安装"><a href="#4-3-脚本安装" class="headerlink" title="4.3 脚本安装"></a>4.3 脚本安装</h4><blockquote>
+<p>Dwm 中涉及较多的 shell 脚本，当然还有其他实现方法，各位可自行探索</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/BYT0723/scripts.git ~/.dwm</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">无法访问github的朋友可</span></span><br><span class="line">git clone https://gitee.com/BYT0723/scripts.git ~/.dwm</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>重点：查看<code>~/.dwm/README.md</code>, 安装好所有需要的依赖和字体等，会让你有一个较好的启动体验</p>
+</blockquote>
+<h3 id="5-启动"><a href="#5-启动" class="headerlink" title="5.启动"></a>5.启动</h3><p>以下两种任选其一</p>
+<h4 id="5-1-使用-startx"><a href="#5-1-使用-startx" class="headerlink" title="5.1 使用 startx"></a>5.1 使用 startx</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果你的~/.xinitrc文件不存在或内容为空</span></span><br><span class="line">echo &quot;exec dwm &gt;&gt; ~/.dwm.log&quot; &gt; .xinitrc</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">否则</span></span><br><span class="line">echo &quot;exec dwm &gt;&gt; ~/.dwm.log&quot; &gt;&gt; .xinitrc</span><br></pre></td></tr></table></figure>
+
+<p>之后在<code>$HOME</code>目录下执行<code>startx</code>即可</p>
+<h4 id="5-2-使用启动管理器"><a href="#5-2-使用启动管理器" class="headerlink" title="5.2 使用启动管理器"></a>5.2 使用启动管理器</h4><p>经过本人使用，双显卡用户使用 optimius-manager 配合启动管理器效果更佳. 配置更轻便简单</p>
+<ol>
+<li>安装 lightdm</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-setting</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>配置 lightdm</li>
+</ol>
+<p>配置 greeter,看清，是<code>[Seat:*]</code>下的配置,将对应的配置项修改为如下值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Seat:*]</span><br><span class="line">greeter-session=lightdm-gtk-greeter</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>添加 Dwm</li>
+</ol>
+<p>将如下如内容添加到<code>/usr/share/xsessions/dwm.desktop</code>中并保存</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Type=XSession</span><br><span class="line">Exec=/usr/local/bin/dwm</span><br><span class="line">TryExec=/usr/local/bin/dwm</span><br><span class="line">DesktopNames=Dwm</span><br><span class="line">Name=Dwm</span><br><span class="line">Comment=Dynamic Window Manager</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>启动</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开机启动</span></span><br><span class="line">sudo systemctl enable lightdm</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动</span></span><br><span class="line">sudo systemctl start lightdm</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这样你就可看到管理器界面，登录即可进入 Dwm</p>
+<h3 id="6-其他配置-可选"><a href="#6-其他配置-可选" class="headerlink" title="6. 其他配置(可选)"></a>6. 其他配置(可选)</h3><h4 id="6-1-配置xorg的keymap映射"><a href="#6-1-配置xorg的keymap映射" class="headerlink" title="6.1 配置xorg的keymap映射"></a>6.1 配置xorg的keymap映射</h4><p>编辑<code>/etc/X11/xorg.conf.d/00-keyboard.conf</code>文件，如果文件不存在则创建</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Section &quot;InputClass&quot;</span><br><span class="line">        Identifier &quot;system-keyboard&quot;</span><br><span class="line">        MatchIsKeyboard &quot;on&quot;</span><br><span class="line">        Option &quot;XkbLayout&quot; &quot;us&quot;</span><br><span class="line">        Option &quot;XkbModel&quot; &quot;pc104&quot;</span><br><span class="line">        Option &quot;AutoRepeat&quot; &quot;250 50&quot;</span><br><span class="line">        Option &quot;XkbOptions&quot; &quot;caps:swapescape,altwin:swap_lalt_lwin&quot;</span><br><span class="line">EndSection</span><br></pre></td></tr></table></figure>
+
+<p>解释：</p>
+<ul>
+<li><code>AutoRepeat</code>设置触键频率</li>
+<li><code>XkbOptions</code>设置键盘键位切换，其中<code>caps:swapescape</code>代表交换大小写锁定和Esc, <code>altwin:swap_lalt_lwin</code>代表交换Logo键(Win)和左Alt键,<br>具体其他键位可查看<code>/usr/share/X11/xkb/rules/base.lst</code></li>
+</ul>
+<h4 id="6-2-配置系统代理"><a href="#6-2-配置系统代理" class="headerlink" title="6.2 配置系统代理"></a>6.2 配置系统代理</h4><p>见<a href="/20230315/archlinux-system-proxy/">ArchLinux系统代理</a>, 如果各位有其他的更优更简便的方案可补充</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Arch/" rel="tag"># Arch</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/Dwm/" rel="tag"># Dwm</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/20230526/golang-context/" rel="prev" title="golang_context">
+      <i class="fa fa-chevron-left"></i> golang_context
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/20231106/note/" rel="next" title="note">
+      note <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%89%8D%E8%A8%80"><span class="nav-text">1.前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85-Xorg"><span class="nav-text">2.安装 Xorg</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85"><span class="nav-text">3.驱动安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%AE%89%E8%A3%85"><span class="nav-text">4.安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-%E5%AE%89%E8%A3%85-Dwm"><span class="nav-text">4.1 安装 Dwm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-%E7%BB%88%E7%AB%AF%E5%AE%89%E8%A3%85"><span class="nav-text">4.2 终端安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-%E8%84%9A%E6%9C%AC%E5%AE%89%E8%A3%85"><span class="nav-text">4.3 脚本安装</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%90%AF%E5%8A%A8"><span class="nav-text">5.启动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-%E4%BD%BF%E7%94%A8-startx"><span class="nav-text">5.1 使用 startx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-%E4%BD%BF%E7%94%A8%E5%90%AF%E5%8A%A8%E7%AE%A1%E7%90%86%E5%99%A8"><span class="nav-text">5.2 使用启动管理器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE-%E5%8F%AF%E9%80%89"><span class="nav-text">6. 其他配置(可选)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-%E9%85%8D%E7%BD%AExorg%E7%9A%84keymap%E6%98%A0%E5%B0%84"><span class="nav-text">6.1 配置xorg的keymap映射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-%E9%85%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86"><span class="nav-text">6.2 配置系统代理</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="BYT0723"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">BYT0723</p>
+  <div class="site-description" itemprop="description">记录一些知识点和平时遇到的问题和新奇遭遇</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/BYT0723" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;BYT0723" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/twang9739@gmail.com" title="GMail → twang9739@gmail.com"><i class="fa fa-envelope fa-fw"></i>GMail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BYT0723</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'eyzphHf860m4wcx8DrXDGAjS-gzGzoHsz',
+      appKey     : 'ZZxwZwJSNQPGsEwTW84cXxyW',
+      placeholder: "say something",
+      avatar     : '/image/avatar.gif',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : 'https://eyzphhf8.lc-cn-n1-shared.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

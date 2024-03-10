@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"byt0723.xyz","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+<meta property="og:type" content="website">
+<meta property="og:title" content="BYT0723的博客">
+<meta property="og:url" content="http://byt0723.xyz/">
+<meta property="og:site_name" content="BYT0723的博客">
+<meta property="og:description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="BYT0723">
+<meta property="article:tag" content="blog developer">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://byt0723.xyz/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>BYT0723的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">BYT0723的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Record Programming</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20240310/golang-memory-align-zeroBytes-padding/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20240310/golang-memory-align-zeroBytes-padding/" class="post-title-link" itemprop="url">Go内存对齐：结构体中0字节字段填充</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-03-10 22:27:32 / 修改时间：23:06:12" itemprop="dateCreated datePublished" datetime="2024-03-10T22:27:32+08:00">2024-03-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Language/" itemprop="url" rel="index"><span itemprop="name">Language</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20240310/golang-memory-align-zeroBytes-padding/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20240310/golang-memory-align-zeroBytes-padding/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="1-问题"><a href="#1-问题" class="headerlink" title="1. 问题"></a>1. 问题</h3><p>观看以下代码</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;unsafe&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> S1 <span class="keyword">struct</span> &#123;</span><br><span class="line">	a <span class="keyword">struct</span>&#123;&#125;</span><br><span class="line">	b <span class="type">int8</span></span><br><span class="line">	c <span class="type">int64</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> S2 <span class="keyword">struct</span> &#123;</span><br><span class="line">	a <span class="type">int8</span></span><br><span class="line">	b <span class="type">int64</span></span><br><span class="line">	c <span class="keyword">struct</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> (</span><br><span class="line">		s1 S1</span><br><span class="line">		s2 S2</span><br><span class="line">	)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;unsafe.Sizeof(s1): %v\n&quot;</span>, unsafe.Sizeof(s1))</span><br><span class="line">	fmt.Printf(<span class="string">&quot;unsafe.Sizeof(s2): %v\n&quot;</span>, unsafe.Sizeof(s2))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-1-分析"><a href="#1-1-分析" class="headerlink" title="1.1 分析"></a>1.1 分析</h5><ul>
+<li><p>S1</p>
+<ol>
+<li>a字段为<code>struct&#123;&#125;</code>,不占内存，0字节</li>
+<li>b字段为<code>int8</code>,对齐长度1, 占1字节</li>
+<li>c字段为<code>int64</code>,对齐长度8,前两个字段只占用了1字节，所以填充7字节，对齐到八字节位</li>
+</ol>
+<p>所以S1占用16字节</p>
+</li>
+<li><p>S2</p>
+<ol>
+<li>a字段为<code>int8</code>,对齐长度1, 占1字节</li>
+<li>b字段为<code>int64</code>,对齐长度8,a字段只占用了1字节，所以填充7字节，对齐到八字节位</li>
+<li>a字段为<code>struct&#123;&#125;</code>,不占内存，0字节</li>
+</ol>
+<p>所以S2占用16字节</p>
+</li>
+</ul>
+<p><strong>真的对吗？</strong>,看看输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unsafe.Sizeof(s1): 16</span><br><span class="line">unsafe.Sizeof(s2): 24</span><br></pre></td></tr></table></figure>
+
+<p>为什么呢？我们看看golang仓库中的这个<a target="_blank" rel="noopener" href="https://github.com/golang/go/issues/9401">issue 9401</a>,建议自己看比较好。</p>
+<p>机翻一下<br><img src="https://i.imgur.com/K3SgHlB.png" alt="issue9401"><br>那么当0字符字段在结构体最后时，多出的一个结构体对齐长度，是为了防止结构体指针之乡结构体外部，即无效指针。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20240310/archlinux-wine-wechat-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20240310/archlinux-wine-wechat-install/" class="post-title-link" itemprop="url">archlinux-wine-wechat-install</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-03-10 17:58:40 / 修改时间：23:06:12" itemprop="dateCreated datePublished" datetime="2024-03-10T17:58:40+08:00">2024-03-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20240310/archlinux-wine-wechat-install/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20240310/archlinux-wine-wechat-install/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="1-安装方案"><a href="#1-安装方案" class="headerlink" title="1. 安装方案"></a>1. 安装方案</h3><ul>
+<li><code>wine-for-wechat</code>配合<code>wine-wechat-setup</code>无脑爽,这是archlinuxcn源中的包</li>
+</ul>
+<h3 id="2-准备"><a href="#2-准备" class="headerlink" title="2. 准备"></a>2. 准备</h3><h4 id="2-1-ArchlinuxCN源配置"><a href="#2-1-ArchlinuxCN源配置" class="headerlink" title="2.1 ArchlinuxCN源配置"></a>2.1 ArchlinuxCN源配置</h4><p>根据<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Unofficial_user_repositories#archlinuxcn">archlinuxcn</a>完成archlinuxcn源配置，然后使用<code>sudo pacman -Syu</code>更新源</p>
+<h4 id="2-2-下载Wechat安装包"><a href="#2-2-下载Wechat安装包" class="headerlink" title="2.2 下载Wechat安装包"></a>2.2 下载Wechat安装包</h4><p>下载最新的<a target="_blank" rel="noopener" href="https://pc.weixin.qq.com/">wechat 64位</a>安装包</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/20240310/archlinux-wine-wechat-install/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20231126/golang-stateful-rolling-restart/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20231126/golang-stateful-rolling-restart/" class="post-title-link" itemprop="url">Go滚动重启</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-11-26 23:28:07" itemprop="dateCreated datePublished" datetime="2023-11-26T23:28:07+08:00">2023-11-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-03-10 23:06:12" itemprop="dateModified" datetime="2024-03-10T23:06:12+08:00">2024-03-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Language/" itemprop="url" rel="index"><span itemprop="name">Language</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20231126/golang-stateful-rolling-restart/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20231126/golang-stateful-rolling-restart/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-应用场景"><a href="#1-应用场景" class="headerlink" title="1. 应用场景"></a>1. 应用场景</h4><p>例如当我们更新了配置文件，但是我们不想停止程序重启</p>
+<h4 id="2-实现思想"><a href="#2-实现思想" class="headerlink" title="2. 实现思想"></a>2. 实现思想</h4><p>在我们检测到配置文件更改时，进行进程替换，但如果我们开启子进程，杀死父进程，会产生孤儿进程</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/20231126/golang-stateful-rolling-restart/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20231106/note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20231106/note/" class="post-title-link" itemprop="url">note</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-11-06 21:32:34" itemprop="dateCreated datePublished" datetime="2023-11-06T21:32:34+08:00">2023-11-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-03-10 23:06:12" itemprop="dateModified" datetime="2024-03-10T23:06:12+08:00">2024-03-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/common/" itemprop="url" rel="index"><span itemprop="name">common</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20231106/note/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20231106/note/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="本文以及评论记录了平时的一些问题"><a href="#本文以及评论记录了平时的一些问题" class="headerlink" title="本文以及评论记录了平时的一些问题"></a>本文以及评论记录了平时的一些问题</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/BYT0723/music-downloader">music-downloader</a><blockquote>
+<ul>
+<li>music-downloader的歌曲名还是会出现字符错误，继续排查</li>
+<li>DONE: qq-music-api中没有check是否获取到歌词</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230610/archlinux-xorg-dwm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230610/archlinux-xorg-dwm/" class="post-title-link" itemprop="url">Arch安装Dwm</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-06-10 15:22:13" itemprop="dateCreated datePublished" datetime="2023-06-10T15:22:13+08:00">2023-06-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-03-10 23:06:12" itemprop="dateModified" datetime="2024-03-10T23:06:12+08:00">2024-03-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230610/archlinux-xorg-dwm/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230610/archlinux-xorg-dwm/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <!--toc:start-->
+
+<ul>
+<li><a href="#1%E5%89%8D%E8%A8%80">1.前言</a></li>
+<li><a href="#2%E5%AE%89%E8%A3%85-xorg">2.安装 Xorg</a></li>
+<li><a href="#3%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85">3.驱动安装</a></li>
+<li><a href="#4%E5%AE%89%E8%A3%85">4.安装</a><ul>
+<li><a href="#41-%E5%AE%89%E8%A3%85-dwm">4.1 安装 Dwm</a></li>
+<li><a href="#42-%E7%BB%88%E7%AB%AF%E5%AE%89%E8%A3%85">4.2 终端安装</a></li>
+<li><a href="#43-%E8%84%9A%E6%9C%AC%E5%AE%89%E8%A3%85">4.3 脚本安装</a></li>
+</ul>
+</li>
+<li><a href="#5%E5%90%AF%E5%8A%A8">5.启动</a><ul>
+<li><a href="#51-%E4%BD%BF%E7%94%A8-startx">5.1 使用 startx</a></li>
+<li><a href="#52-%E4%BD%BF%E7%94%A8%E5%90%AF%E5%8A%A8%E7%AE%A1%E7%90%86%E5%99%A8">5.2 使用启动管理器</a></li>
+</ul>
+</li>
+<li><a href="#6-%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE">6. 其他配置</a><!--toc:end--></li>
+</ul>
+<h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h3><p>你需要确保你已经安装好了 Arch 或其他发行版的 Linux,并且已经接入互联网、配置好了你的 <code>pacman.conf</code> 和 <code>mirrorlist</code></p>
+<blockquote>
+<p>Tips: 如果您已接触过其他桌面管理器，可直接跳转至<a href="#4%E5%AE%89%E8%A3%85">安装</a></p>
+</blockquote>
+<h3 id="2-安装-Xorg"><a href="#2-安装-Xorg" class="headerlink" title="2.安装 Xorg"></a>2.安装 Xorg</h3><p>Xorg （通常简称为 X ）是 Linux 用户中最流行的显示服务器。 它无处不在，使其成为 GUI 应用程序永远存在的必要条件，从而导致大多数发行版的大量采用。<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Xorg">wiki</a><br>xorg 是 dwm 乃至大多数桌面环境的基础(hyprrland 除外).</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S xorg xorg-server xorg-apps</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>xorg-apps 中包括了很多有用的工具，例如<code>xrandr</code>、<code>xprop</code>、<code>xmodmap</code>、<code>xsetroot</code></p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/20230610/archlinux-xorg-dwm/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230526/golang-context/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230526/golang-context/" class="post-title-link" itemprop="url">golang_context</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-05-26 16:33:37" itemprop="dateCreated datePublished" datetime="2023-05-26T16:33:37+08:00">2023-05-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-03-10 23:06:12" itemprop="dateModified" datetime="2024-03-10T23:06:12+08:00">2024-03-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Language/" itemprop="url" rel="index"><span itemprop="name">Language</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230526/golang-context/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230526/golang-context/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>部分初学者使用web框架时会发现每个handler都会传入一个context，但并没有深究他的作用，甚至直接传入一个<code>context.Background()</code>草草了事。本文结合我在工作中的实际场景，盘点下context的使用</p>
+<h4 id="1-控制goroutine"><a href="#1-控制goroutine" class="headerlink" title="1. 控制goroutine"></a>1. 控制goroutine</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;sync&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> wg sync.WaitGroup</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	wg.Add(<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> wg.Done()</span><br><span class="line">		daemon1()</span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line">	wg.Add(<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> wg.Done()</span><br><span class="line">		daemon2()</span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line">	wg.Wait()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">daemon1</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// 开启8080端口tcp监听，并处理连接</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">daemon2</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// 开启8080端口udp监听，并处理连接</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如上，我们在<code>main</code>函数中启动了两个守护协程，并使用<code>WaitGroup</code>等待goroutine结束，但由于daemon中监听并处理，一般有<code>for &#123;&#125;</code>结构，无法退出。当我们退出主协程，由于等待，会导致我们的程序卡死</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/20230526/golang-context/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230523/db-with-cache/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230523/db-with-cache/" class="post-title-link" itemprop="url">db_with_cache</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-05-23 20:49:00" itemprop="dateCreated datePublished" datetime="2023-05-23T20:49:00+08:00">2023-05-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-03-10 23:06:12" itemprop="dateModified" datetime="2024-03-10T23:06:12+08:00">2024-03-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/common/" itemprop="url" rel="index"><span itemprop="name">common</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230523/db-with-cache/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230523/db-with-cache/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="1-DB-和-Cache-的数据一致性"><a href="#1-DB-和-Cache-的数据一致性" class="headerlink" title="1. DB 和 Cache 的数据一致性"></a>1. DB 和 Cache 的数据一致性</h3><ul>
+<li><p><strong>延迟双删</strong></p>
+</li>
+<li><p><strong>binlog 异步更新</strong></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230506/network-interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230506/network-interview/" class="post-title-link" itemprop="url">network-interview</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-05-06 22:14:43" itemprop="dateCreated datePublished" datetime="2023-05-06T22:14:43+08:00">2023-05-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-03-10 23:06:12" itemprop="dateModified" datetime="2024-03-10T23:06:12+08:00">2024-03-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Network/" itemprop="url" rel="index"><span itemprop="name">Network</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230506/network-interview/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230506/network-interview/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="XSS-攻击"><a href="#XSS-攻击" class="headerlink" title="XSS 攻击"></a>XSS 攻击</h3><h3 id="Grpc-和-HTTP1-1-应用场景的差别"><a href="#Grpc-和-HTTP1-1-应用场景的差别" class="headerlink" title="Grpc 和 HTTP1.1 应用场景的差别"></a>Grpc 和 HTTP1.1 应用场景的差别</h3><blockquote>
+<p>gRPC 是一种高性能的 RPC（Remote Procedure Call）框架，它使用 Protocol Buffers 进行序列化和反序列化，支持多种编程语言，并提供了丰富的特性，如流式处理、认证和授权等。在微服务场景下，由于 gRPC 使用二进制协议进行通信，因此它的效率和吞吐量都比 RESTful API 更高。此外，gRPC 还提供了更加丰富的服务定义和代码生成工具，可以更加方便地生成客户端和服务器端的代码。<br>而 RESTful API 则是一种基于 HTTP 协议的 API 设计风格，它使用 JSON、XML 等文本格式进行序列化和反序列化，具有简单、灵活、易于理解和使用的特点。RESTful API 适用于基于 HTTP 的应用程序，比如 Web 应用程序、移动应用程序等，且可以跨语言和平台使用。在微服务场景下，RESTful API 具有更加广泛的应用场景，比如服务暴露、API 网关等。<br>因此，选择 gRPC 还是 RESTful API 需要根据具体需求和场景进行选择。如果需要高性能、高吞吐量的微服务之间通信，或者需要流式处理、认证和授权等高级特性，可以选择 gRPC；如果需要简单、灵活、易于理解和使用的 API，或者需要跨语言和平台使用，可以选择 RESTful API。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230506/string-algorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230506/string-algorithm/" class="post-title-link" itemprop="url">string-algorithm</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-05-06 21:34:31" itemprop="dateCreated datePublished" datetime="2023-05-06T21:34:31+08:00">2023-05-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-03-10 23:06:12" itemprop="dateModified" datetime="2024-03-10T23:06:12+08:00">2024-03-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230506/string-algorithm/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230506/string-algorithm/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>waiting to learn</p>
+</blockquote>
+<h3 id="1-字符串匹配算法（KMP）"><a href="#1-字符串匹配算法（KMP）" class="headerlink" title="1. 字符串匹配算法（KMP）"></a>1. 字符串匹配算法（KMP）</h3><h3 id="2-LIS（最长递增子序列）"><a href="#2-LIS（最长递增子序列）" class="headerlink" title="2. LIS（最长递增子序列）"></a>2. LIS（最长递增子序列）</h3><h3 id="3-LCS（最长公共子序列）"><a href="#3-LCS（最长公共子序列）" class="headerlink" title="3. LCS（最长公共子序列）"></a>3. LCS（最长公共子序列）</h3><h3 id="4-LCP（最长公共前缀）"><a href="#4-LCP（最长公共前缀）" class="headerlink" title="4. LCP（最长公共前缀）"></a>4. LCP（最长公共前缀）</h3><h3 id="5-LPS（最长回文子序列）"><a href="#5-LPS（最长回文子序列）" class="headerlink" title="5. LPS（最长回文子序列）"></a>5. LPS（最长回文子序列）</h3><h3 id="6-ED（最小编辑距离）"><a href="#6-ED（最小编辑距离）" class="headerlink" title="6. ED（最小编辑距离）"></a>6. ED（最小编辑距离）</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230506/os-interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230506/os-interview/" class="post-title-link" itemprop="url">os-interview</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-05-06 19:09:18" itemprop="dateCreated datePublished" datetime="2023-05-06T19:09:18+08:00">2023-05-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-03-10 23:06:12" itemprop="dateModified" datetime="2024-03-10T23:06:12+08:00">2024-03-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230506/os-interview/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230506/os-interview/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="1-同步和异步，阻塞和非阻塞"><a href="#1-同步和异步，阻塞和非阻塞" class="headerlink" title="1. 同步和异步，阻塞和非阻塞"></a>1. 同步和异步，阻塞和非阻塞</h3><h3 id="2-线程状态"><a href="#2-线程状态" class="headerlink" title="2. 线程状态"></a>2. 线程状态</h3><h3 id="3-什么是上下文切换"><a href="#3-什么是上下文切换" class="headerlink" title="3. 什么是上下文切换"></a>3. 什么是上下文切换</h3><h3 id="4-文件系统格式"><a href="#4-文件系统格式" class="headerlink" title="4. 文件系统格式"></a>4. 文件系统格式</h3><ol>
+<li>类 Unix<br>ext</li>
+</ol>
+<ul>
+<li>ext</li>
+<li>ext2</li>
+<li>ext3</li>
+<li>ext4</li>
+</ul>
+<ol start="2">
+<li>DOM</li>
+</ol>
+<ul>
+<li>FAT32</li>
+</ul>
+<p>传统的 windows 平台文件系统格式，兼容性强。<br>但 FAT32 不支持 4GB 以上的文件，并且没有日志，也就是断电后容易出现文件丢失的情况</p>
+<ul>
+<li>NTFS</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="BYT0723"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">BYT0723</p>
+  <div class="site-description" itemprop="description">记录一些知识点和平时遇到的问题和新奇遭遇</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/BYT0723" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;BYT0723" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/twang9739@gmail.com" title="GMail → twang9739@gmail.com"><i class="fa fa-envelope fa-fw"></i>GMail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BYT0723</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'eyzphHf860m4wcx8DrXDGAjS-gzGzoHsz',
+      appKey     : 'ZZxwZwJSNQPGsEwTW84cXxyW',
+      placeholder: "say something",
+      avatar     : '/image/avatar.gif',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : 'https://eyzphhf8.lc-cn-n1-shared.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
