@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"byt0723.xyz","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+<meta property="og:type" content="website">
+<meta property="og:title" content="BYT0723的博客">
+<meta property="og:url" content="http://byt0723.xyz/page/2/">
+<meta property="og:site_name" content="BYT0723的博客">
+<meta property="og:description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="BYT0723">
+<meta property="article:tag" content="blog developer">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://byt0723.xyz/page/2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>BYT0723的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">BYT0723的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Record Programming</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230506/string-algorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230506/string-algorithm/" class="post-title-link" itemprop="url">string-algorithm</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-05-06 21:34:31" itemprop="dateCreated datePublished" datetime="2023-05-06T21:34:31+08:00">2023-05-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-05-23 00:45:11" itemprop="dateModified" datetime="2025-05-23T00:45:11+08:00">2025-05-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230506/string-algorithm/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230506/string-algorithm/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>waiting to learn</p>
+</blockquote>
+<h3 id="1-字符串匹配算法（KMP）"><a href="#1-字符串匹配算法（KMP）" class="headerlink" title="1. 字符串匹配算法（KMP）"></a>1. 字符串匹配算法（KMP）</h3><h3 id="2-LIS（最长递增子序列）"><a href="#2-LIS（最长递增子序列）" class="headerlink" title="2. LIS（最长递增子序列）"></a>2. LIS（最长递增子序列）</h3><h3 id="3-LCS（最长公共子序列）"><a href="#3-LCS（最长公共子序列）" class="headerlink" title="3. LCS（最长公共子序列）"></a>3. LCS（最长公共子序列）</h3><h3 id="4-LCP（最长公共前缀）"><a href="#4-LCP（最长公共前缀）" class="headerlink" title="4. LCP（最长公共前缀）"></a>4. LCP（最长公共前缀）</h3><h3 id="5-LPS（最长回文子序列）"><a href="#5-LPS（最长回文子序列）" class="headerlink" title="5. LPS（最长回文子序列）"></a>5. LPS（最长回文子序列）</h3><h3 id="6-ED（最小编辑距离）"><a href="#6-ED（最小编辑距离）" class="headerlink" title="6. ED（最小编辑距离）"></a>6. ED（最小编辑距离）</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230506/os-interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230506/os-interview/" class="post-title-link" itemprop="url">os-interview</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-05-06 19:09:18" itemprop="dateCreated datePublished" datetime="2023-05-06T19:09:18+08:00">2023-05-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-05-23 00:45:11" itemprop="dateModified" datetime="2025-05-23T00:45:11+08:00">2025-05-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230506/os-interview/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230506/os-interview/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="1-同步和异步，阻塞和非阻塞"><a href="#1-同步和异步，阻塞和非阻塞" class="headerlink" title="1. 同步和异步，阻塞和非阻塞"></a>1. 同步和异步，阻塞和非阻塞</h3><h3 id="2-线程状态"><a href="#2-线程状态" class="headerlink" title="2. 线程状态"></a>2. 线程状态</h3><h3 id="3-什么是上下文切换"><a href="#3-什么是上下文切换" class="headerlink" title="3. 什么是上下文切换"></a>3. 什么是上下文切换</h3><h3 id="4-文件系统格式"><a href="#4-文件系统格式" class="headerlink" title="4. 文件系统格式"></a>4. 文件系统格式</h3><ol>
+<li>类 Unix<br>ext</li>
+</ol>
+<ul>
+<li>ext</li>
+<li>ext2</li>
+<li>ext3</li>
+<li>ext4</li>
+</ul>
+<ol start="2">
+<li>DOM</li>
+</ol>
+<ul>
+<li>FAT32</li>
+</ul>
+<p>传统的 windows 平台文件系统格式，兼容性强。<br>但 FAT32 不支持 4GB 以上的文件，并且没有日志，也就是断电后容易出现文件丢失的情况</p>
+<ul>
+<li>NTFS</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230506/sql-interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230506/sql-interview/" class="post-title-link" itemprop="url">sql-interview</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-05-06 18:59:55" itemprop="dateCreated datePublished" datetime="2023-05-06T18:59:55+08:00">2023-05-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-05-23 00:45:11" itemprop="dateModified" datetime="2025-05-23T00:45:11+08:00">2025-05-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DB/" itemprop="url" rel="index"><span itemprop="name">DB</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230506/sql-interview/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230506/sql-interview/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <!--toc:start-->
+
+<ul>
+<li><a href="#1-sql-%E8%AF%AD%E5%8F%A5%E7%9A%84%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B">1. SQL 语句的执行流程</a><ul>
+<li><a href="#11-%E9%80%BB%E8%BE%91%E5%89%96%E6%9E%90">1.1 逻辑剖析</a></li>
+</ul>
+</li>
+<li><a href="#2-%E5%A6%82%E4%BD%95%E5%9C%A8%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E4%B8%AD%E4%B8%BA%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%8A%A0%E5%AD%97%E6%AE%B5">2. 如何在生产环境中为表格增加字段</a></li>
+<li><a href="#3%E4%BA%8B%E5%8A%A1">3.事务</a><ul>
+<li><a href="#3-1-ACID">3.1 ACID</a></li>
+<li><a href="#3-2-%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB">3.2 事务隔离级别</a></li>
+</ul>
+</li>
+<li><a href="#4-clickhouse-%E8%BF%99%E7%A7%8D%E5%88%97%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E4%BC%A0%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BC%98%E5%8A%A3">4. clickhouse 这种列式数据库和传统数据库的优劣</a></li>
+<li><a href="#5-%E5%BC%80%E7%AA%97%E5%87%BD%E6%95%B0">5. 开窗函数</a><ul>
+<li><a href="#%E5%BC%80%E7%AA%97%E5%AE%9E%E8%B7%B5">开窗实践</a><!--toc:end--></li>
+</ul>
+</li>
+</ul>
+<h3 id="1-SQL-语句的执行流程"><a href="#1-SQL-语句的执行流程" class="headerlink" title="1. SQL 语句的执行流程"></a>1. SQL 语句的执行流程</h3><h4 id="1-1-逻辑剖析"><a href="#1-1-逻辑剖析" class="headerlink" title="1.1 逻辑剖析"></a>1.1 逻辑剖析</h4><blockquote>
+<p>sql 语句 &gt; 查询缓存 &gt; 解释器 &gt; 优化器 &gt; 执行器</p>
+</blockquote>
+<h3 id="2-如何在生产环境中为表格增加字段"><a href="#2-如何在生产环境中为表格增加字段" class="headerlink" title="2. 如何在生产环境中为表格增加字段"></a>2. 如何在生产环境中为表格增加字段</h3><h3 id="3-事务"><a href="#3-事务" class="headerlink" title="3.事务"></a>3.事务</h3><h4 id="3-1-ACID"><a href="#3-1-ACID" class="headerlink" title="3.1 ACID"></a>3.1 ACID</h4><ul>
+<li>Atomicity，原子操作</li>
+<li>Consistency，一致性</li>
+<li>Isolation，隔离性</li>
+<li>Durability，持久性</li>
+</ul>
+<p>解释如下可能会用到 2~3 个事务，这里简称 ABC。</p>
+<ul>
+<li><p>脏写</p>
+<ol>
+<li>A 先将数据从 NULL 更新为 1</li>
+<li>在 A 未提交时，B 将数据从 1 更新为 2</li>
+<li>A 在执行过程中发生错误并回滚，将数据回滚为 NULL</li>
+<li>B 提交后发现数据并不是 2，并且自己的事务并没有执行失败</li>
+</ol>
+<p>B 写失败了</p>
+</li>
+<li><p>脏读</p>
+<ol>
+<li>A 先将数据从 NULL 更新为 1</li>
+<li>在 A 未提交时，B 读取数据为 1</li>
+<li>A 在执行过程中发生错误并回滚，将数据回滚为 NULL</li>
+<li>B 再次读取数据发现是 NULL</li>
+</ol>
+<p>B 在 step 2 时读取了脏数据</p>
+</li>
+</ul>
+<blockquote>
+<p>脏写和脏读类似，都是对<strong>未提交事务修改的数据</strong>进行操作，在该事务发生错误回滚后，就会导致脏写和脏读发生</p>
+</blockquote>
+<ul>
+<li><p>不可重复读（update）<br>A 在执行过程中多次读取数据，但在执行过程中，B 和 C 修改并提交了数据，导致 A 多次读取读取到了不同的值</p>
+</li>
+<li><p>幻读（insert,delete）<br>A 在执行过程中多次查询数据，但在执行过程中，B 和 C 插入并提交新的数据，导致 A 多次查询，查到了不同条数的结果</p>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/20230506/sql-interview/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230504/lock/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230504/lock/" class="post-title-link" itemprop="url">锁</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-05-04 21:22:13" itemprop="dateCreated datePublished" datetime="2023-05-04T21:22:13+08:00">2023-05-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-05-23 00:45:11" itemprop="dateModified" datetime="2025-05-23T00:45:11+08:00">2025-05-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230504/lock/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230504/lock/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="1-互斥锁和自旋锁"><a href="#1-互斥锁和自旋锁" class="headerlink" title="1. 互斥锁和自旋锁"></a>1. 互斥锁和自旋锁</h3><p>区别：</p>
+<ul>
+<li><p>互斥锁：在加锁失败后，线程会释放 CPU，给其他线程；<br>互斥锁在加锁失败时，会从<strong>用户态陷入到内核态</strong>，让内核帮我们切换线程，这样就会造成一定的性能开销。<br>线程在两次状态的切换中，会有<strong>两次线程<em>上下文切换</em></strong>。</p>
+<blockquote>
+<p>线程的上下文切换的是什么？当两个线程是属于同一个进程，因为虚拟内存是共享的，所以在切换时，虚拟内存这些资源就保持不动，只需要切换线程的私有数据、寄存器等不共享的数据。</p>
+</blockquote>
+<ol>
+<li>加锁失败时，将 CPU 让给其他线程</li>
+<li>锁被释放时，线程会转换为[就绪]状态，内核会在合适时间将 CPU 切换回该线程</li>
+</ol>
+<p>有大佬统计过，大概在几十纳秒到几微秒之间。如果你能确定被锁住的代码执行时间很短，就应该选用自旋锁，否则使用互斥锁。</p>
+</li>
+<li><p>自旋锁：在加锁失败后，线程会忙等待，直到它拿到锁；<br>自旋锁是通过 CAS（Compare And Swap）函数，在用户态完成加锁和解锁，所以不会上下文切换的开销，相对于互斥锁更快，开销更小。</p>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/20230504/lock/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230418/golang-memory-align-use64in32/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230418/golang-memory-align-use64in32/" class="post-title-link" itemprop="url">Go内存对齐的一些问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-18 09:23:25" itemprop="dateCreated datePublished" datetime="2023-04-18T09:23:25+08:00">2023-04-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-05-23 00:45:11" itemprop="dateModified" datetime="2025-05-23T00:45:11+08:00">2025-05-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Language/" itemprop="url" rel="index"><span itemprop="name">Language</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230418/golang-memory-align-use64in32/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230418/golang-memory-align-use64in32/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="1-atomic-AddInt64在-32-位操作系统上内存对齐的问题"><a href="#1-atomic-AddInt64在-32-位操作系统上内存对齐的问题" class="headerlink" title="1. atomic.AddInt64在 32 位操作系统上内存对齐的问题"></a>1. <code>atomic.AddInt64</code>在 32 位操作系统上内存对齐的问题</h3><h4 id="1-1-问题"><a href="#1-1-问题" class="headerlink" title="1.1 问题"></a>1.1 问题</h4><p>在32位机器上使用int64可能会出现<code>panic: unaligned 64-bit atomic operation</code></p>
+<h4 id="1-2-触发代码"><a href="#1-2-触发代码" class="headerlink" title="1.2 触发代码"></a>1.2 触发代码</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;sync/atomic&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Foo <span class="keyword">struct</span> &#123;</span><br><span class="line">	a <span class="type">int64</span></span><br><span class="line">	b <span class="type">int32</span></span><br><span class="line">	c <span class="type">int64</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> f Foo</span><br><span class="line">	atomic.AddInt64(&amp;f.a, <span class="number">1</span>) <span class="comment">// 这里不会崩溃</span></span><br><span class="line">	atomic.AddInt64(&amp;f.c, <span class="number">1</span>) <span class="comment">// 这里会崩溃</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/20230418/golang-memory-align-use64in32/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230416/etcd-intro-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230416/etcd-intro-md/" class="post-title-link" itemprop="url">Etcd</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-16 08:33:28" itemprop="dateCreated datePublished" datetime="2023-04-16T08:33:28+08:00">2023-04-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-05-23 00:45:11" itemprop="dateModified" datetime="2025-05-23T00:45:11+08:00">2025-05-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NoSQL/" itemprop="url" rel="index"><span itemprop="name">NoSQL</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230416/etcd-intro-md/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230416/etcd-intro-md/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <!--toc:start-->
+
+<ul>
+<li><a href="#1-etcd-%E6%98%AF%E4%BB%80%E4%B9%88">1. etcd 是什么</a><ul>
+<li><a href="#1-1-etcd-%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">1.1 etcd 的应用场景:</a></li>
+</ul>
+</li>
+<li><a href="#2-etcd-%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C">2. etcd 的基本操作</a><!--toc:end--></li>
+</ul>
+<h3 id="1-etcd-是什么"><a href="#1-etcd-是什么" class="headerlink" title="1. etcd 是什么"></a>1. etcd 是什么</h3><p>etcd 是一个分布式键值对存储，设计用来可靠而快速的保存关键数据并提供访问。<br>通过分布式锁，leader 选举和写屏障(write barriers)来实现可靠的分布式协作。<br>etcd 集群是为高可用，持久性数据存储和检索而准备。</p>
+<h4 id="1-1-etcd-的应用场景"><a href="#1-1-etcd-的应用场景" class="headerlink" title="1.1 etcd 的应用场景:"></a>1.1 etcd 的应用场景:</h4><ul>
+<li>服务发现</li>
+<li>消息发布和订阅</li>
+<li>负载均衡</li>
+<li>分布式锁、分布式队列</li>
+<li>集群监控和 leader 竞选</li>
+</ul>
+<h3 id="2-etcd-的基本操作"><a href="#2-etcd-的基本操作" class="headerlink" title="2. etcd 的基本操作"></a>2. etcd 的基本操作</h3><ul>
+<li>通过 http 进行通信</li>
+<li>通过 etcdctl 连接进行操作</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/20230416/etcd-intro-md/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230416/redis-intro-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230416/redis-intro-md/" class="post-title-link" itemprop="url">Redis</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-16 08:33:18" itemprop="dateCreated datePublished" datetime="2023-04-16T08:33:18+08:00">2023-04-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-05-23 00:45:11" itemprop="dateModified" datetime="2025-05-23T00:45:11+08:00">2025-05-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NoSQL/" itemprop="url" rel="index"><span itemprop="name">NoSQL</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230416/redis-intro-md/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230416/redis-intro-md/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="1-redis-简介"><a href="#1-redis-简介" class="headerlink" title="1. redis 简介"></a>1. redis 简介</h3><p>redis 是内存型 NoSQL 数据库，因其使用内存存储，性能优越，其读写速度远超其他类型的数据库。</p>
+<h4 id="1-1-redis-的应用场景"><a href="#1-1-redis-的应用场景" class="headerlink" title="1.1 redis 的应用场景"></a>1.1 redis 的应用场景</h4><ul>
+<li>缓存：使用 redis 存储一些常用的主要数据可以提升响应速度（redis 和数据库的数据一致性）</li>
+<li>高速读写场合：在高频次读写操作时，数据库的响应就会显著降低。而这时，使用 redis 进行高速读写，在读写结束时，异步将数据写入数据库中</li>
+</ul>
+<h3 id="2-redis-的数据类型和基本操作"><a href="#2-redis-的数据类型和基本操作" class="headerlink" title="2.redis 的数据类型和基本操作"></a>2.redis 的数据类型和基本操作</h3><h4 id="2-1-redis-的数据类型"><a href="#2-1-redis-的数据类型" class="headerlink" title="2.1 redis 的数据类型"></a>2.1 redis 的数据类型</h4><ul>
+<li>String(二进制安全，可以存储任何数据，例如 jpg 或其他序列化字节，最大存储 512MB)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">update or (create <span class="keyword">if</span> not exist)</span></span><br><span class="line">set [key] [value]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">search key</span></span><br><span class="line">get [key]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Hash</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">update or (create <span class="keyword">if</span> not exist) field</span></span><br><span class="line">hset [key] [field1] [value1] […] […]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">search field of hset key</span></span><br><span class="line">hget [key] [field1]</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/20230416/redis-intro-md/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230410/golang-cpu-schedula/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230410/golang-cpu-schedula/" class="post-title-link" itemprop="url">Go的cpu调度</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-10 17:02:50" itemprop="dateCreated datePublished" datetime="2023-04-10T17:02:50+08:00">2023-04-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-05-23 00:45:11" itemprop="dateModified" datetime="2025-05-23T00:45:11+08:00">2025-05-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Language/" itemprop="url" rel="index"><span itemprop="name">Language</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230410/golang-cpu-schedula/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230410/golang-cpu-schedula/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="1-调度模型-GPM"><a href="#1-调度模型-GPM" class="headerlink" title="1. 调度模型 GPM"></a>1. 调度模型 GPM</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230410/golang-interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230410/golang-interview/" class="post-title-link" itemprop="url">Go面试问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-10 13:53:25" itemprop="dateCreated datePublished" datetime="2023-04-10T13:53:25+08:00">2023-04-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-05-23 00:45:11" itemprop="dateModified" datetime="2025-05-23T00:45:11+08:00">2025-05-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Language/" itemprop="url" rel="index"><span itemprop="name">Language</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230410/golang-interview/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230410/golang-interview/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="1-Slice-扩容机制"><a href="#1-Slice-扩容机制" class="headerlink" title="1. Slice 扩容机制"></a>1. Slice 扩容机制</h3><ul>
+<li><p>当 newLen &gt;&#x3D; 2 * cap, 则 newCap &#x3D; newLen</p>
+</li>
+<li><p>当 newLen &lt; 2 * cap</p>
+<ul>
+<li>如果 cap &lt; 256, 则 newCap &#x3D; 2 * cap</li>
+<li>如果 cap &gt;&#x3D; 256, 则 newCap &#x3D; cap + (cap + 3 * threshold) &#x2F; 4, 即 1.25 倍容量+ 0.75 倍阈值的平滑因子, 平滑因子在各个阈值阶段也会不同<table>
+<thead>
+<tr>
+<th align="center">starting cap</th>
+<th align="center">growth factor</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">256</td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td align="center">512</td>
+<td align="center">1.63</td>
+</tr>
+<tr>
+<td align="center">1024</td>
+<td align="center">1.44</td>
+</tr>
+<tr>
+<td align="center">2048</td>
+<td align="center">1.35</td>
+</tr>
+<tr>
+<td align="center">4096</td>
+<td align="center">1.30</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/20230410/golang-interview/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://byt0723.xyz/20230410/sql-optimization-strategy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="BYT0723">
+      <meta itemprop="description" content="记录一些知识点和平时遇到的问题和新奇遭遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BYT0723的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20230410/sql-optimization-strategy/" class="post-title-link" itemprop="url">SQL优化策略</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-10 09:15:03" itemprop="dateCreated datePublished" datetime="2023-04-10T09:15:03+08:00">2023-04-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-05-23 00:45:11" itemprop="dateModified" datetime="2025-05-23T00:45:11+08:00">2025-05-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/20230410/sql-optimization-strategy/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/20230410/sql-optimization-strategy/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="1-MYSQL-优化的几个原则"><a href="#1-MYSQL-优化的几个原则" class="headerlink" title="1. MYSQL 优化的几个原则"></a>1. MYSQL 优化的几个原则</h3><ul>
+<li>减少数据访问：设置合理的字段类型，启用压缩，通过索引访问等减少磁盘 IO</li>
+<li>返回更少的数据：只返回需要的字段和数据分页处理，减少磁盘和网络 IO</li>
+<li>减少交互次数：批量 DML 操作，函数存储等减少数据连接次数</li>
+<li>利用更多资源：使用表分区，并增加并行操作，更大限度利用 CPU 资源</li>
+</ul>
+<p>总结一下</p>
+<ul>
+<li>最大化利用索引</li>
+<li>尽可能避免全表扫描</li>
+<li>减少无效数据的查询</li>
+</ul>
+<h3 id="2-优化策略"><a href="#2-优化策略" class="headerlink" title="2. 优化策略"></a>2. 优化策略</h3><blockquote>
+<p>声明：以下 SQL 优化策略适用于数据量较大的场景下，如果数据量较小，没必要以此为准，以免画蛇添足。</p>
+</blockquote>
+<h4 id="2-1-避免不走索引的场景"><a href="#2-1-避免不走索引的场景" class="headerlink" title="2.1 避免不走索引的场景"></a>2.1 避免不走索引的场景</h4><ol>
+<li>尽量避免在字段开头模糊查询，会导致数据库引擎放弃索引，进行全表扫描</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># bad</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> t <span class="keyword">WHERE</span> username <span class="keyword">LIKE</span> <span class="string">&#x27;%王%&#x27;</span></span><br><span class="line"># good</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> t <span class="keyword">WHERE</span> username <span class="keyword">LIKE</span> <span class="string">&#x27;王%&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果需要在前面使用模糊查询，提供几个解决思路：</p>
+<ul>
+<li>使用 MySQL 内置函数<code>INSTR(str, substr)</code>来匹配</li>
+<li>使用 FullText 全文索引，用 match against 检索</li>
+<li>数据量较大的情况，建议引入 ElasticSearch、solr，亿级数据量检索速度秒级</li>
+<li>当表数据量较少（几千条左右），直接<code>like &#39;%xx%&#39;</code></li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/20230410/sql-optimization-strategy/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="BYT0723"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">BYT0723</p>
+  <div class="site-description" itemprop="description">记录一些知识点和平时遇到的问题和新奇遭遇</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/BYT0723" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;BYT0723" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/twang9739@gmail.com" title="GMail → twang9739@gmail.com"><i class="fa fa-envelope fa-fw"></i>GMail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BYT0723</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'eyzphHf860m4wcx8DrXDGAjS-gzGzoHsz',
+      appKey     : 'ZZxwZwJSNQPGsEwTW84cXxyW',
+      placeholder: "say something",
+      avatar     : '/image/avatar.gif',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : 'https://eyzphhf8.lc-cn-n1-shared.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
