@@ -1,0 +1,972 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/images/icons/favicon.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="BYT0723">
+  <meta name="keywords" content="blog developer">
+  
+    <meta name="description" content="Golang笺言，让我们写出更好更优雅的Go代码（from go-advince)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Golang笺言">
+<meta property="og:url" content="http://blog.byt0723.xyz/20220806/golang-proverbs/">
+<meta property="og:site_name" content="Tyler&#39;s blog">
+<meta property="og:description" content="Golang笺言，让我们写出更好更优雅的Go代码（from go-advince)">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-06T15:04:50.000Z">
+<meta property="article:modified_time" content="2025-07-28T07:34:17.651Z">
+<meta property="article:author" content="BYT0723">
+<meta property="article:tag" content="Golang">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Golang笺言 - Tyler&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.byt0723.xyz","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Tyler&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Golang笺言"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-08-06 23:04" pubdate>
+          Sat August 6, 2022
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.6k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          22 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> views
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Golang笺言</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <!-- 刚毕业的我就被公司以某些理由炒了，所以我来继续学习了<span class="github-emoji" alias="sob" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png?v8">&#x1f62d;</span> -->
+
+<p>本篇文章是学习<a target="_blank" rel="noopener" href="https://github.com/cristaloleg/go-advice">go-advice</a>时所写，包含了大部分写 go 需要注意的点</p>
+<h3 id="1-谏言"><a href="#1-谏言" class="headerlink" title="1. 谏言"></a>1. 谏言</h3><ul>
+<li>不要通过共享内存进行通信，通过通信共享内存</li>
+<li>并发不是并行 <span class="github-emoji" alias="heavy_check_mark" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8">&#x2714;</span></li>
+<li>管道用于协调；互斥量（锁）用于同步 <span class="github-emoji" alias="heavy_check_mark" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8">&#x2714;</span></li>
+<li>接口越大，抽象越弱 <span class="github-emoji" alias="heavy_check_mark" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8">&#x2714;</span></li>
+<li>利用好零值</li>
+<li>空结构<code>interface&#123;&#125;</code>即<code>any</code>没有任何类型约束 <span class="github-emoji" alias="heavy_check_mark" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8">&#x2714;</span></li>
+<li>gofmt 的风格不是人们最喜欢的，但 gofmt 是每个人的最爱</li>
+<li>一点点重复比引入一点点依赖更好</li>
+<li>始终使用构建标记保护系统调用和 cgo</li>
+<li>cgo 不是 go</li>
+<li>使用<code>unsafe</code>不能保证能如期运行</li>
+<li>清晰比聪明更好</li>
+<li>反射永远不清晰</li>
+<li>错误是值</li>
+<li>不要只检查错误，还要优雅的处理它们</li>
+<li>设计架构，命名组件，文档记录细节</li>
+<li>文档是供用户使用的</li>
+<li>不要（在生产环境）使用<code>panic()</code></li>
+</ul>
+<span id="more"></span>
+
+<h3 id="2-目标"><a href="#2-目标" class="headerlink" title="2. 目标"></a>2. 目标</h3><ul>
+<li>每个 package 实现单一的目的</li>
+<li>显示处理错误</li>
+<li>尽早返回，而不是使用深嵌套</li>
+<li>让调用者处理并发（带来的问题）</li>
+<li>在启动一个 goroutine 时，需要知道它何时会停止</li>
+<li>避免 package 级别的状态</li>
+<li>简单很重要</li>
+<li>编写测试以锁定 package API 的行为</li>
+<li>如果你觉得很慢，先编写 benchmark 来证明</li>
+<li>适度是一种美德</li>
+<li>可维护性</li>
+</ul>
+<h3 id="3-代码"><a href="#3-代码" class="headerlink" title="3. 代码"></a>3. 代码</h3><ul>
+<li><p>使用<code>go fmt</code>格式化</p>
+<blockquote>
+<p>让团队一起使用官方的 Go 格式化工具，不要重新发明轮子，尝试减少代码复杂度，使代码更易于阅读</p>
+</blockquote>
+</li>
+<li><p>多个 if 语句折叠成 switch</p>
+</li>
+<li><p>使用<code>chan struct&#123;&#125;</code>来传递信号，<code>chan bool</code>表达不够清楚</p>
+</li>
+<li><p><code>30 * time.Second</code>比<code>time.Duration(30) * time.Second</code>更好</p>
+</li>
+<li><p>用<code>time.Duration</code>替代<code>int64</code>+变量名</p>
+</li>
+<li><p>按类型分组<code>const</code>声明，按逻辑或类型分组<code>var</code></p>
+</li>
+<li><p>每个<strong>阻塞</strong>或者<strong>IO 函数</strong>操作应该是可取消或者至少是可超时的</p>
+</li>
+<li><p>为整型常量值实现<code>Stringer</code><a target="_blank" rel="noopener" href="https://godoc.org/golang.org/x/tools/cmd/stringer"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a>接口</p>
+</li>
+<li><p>检查<code>defer</code>中的错误</p>
+</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-keyword">defer</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span>&#123;<br>    err := body.Clost()<br>    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;<br>        <span class="hljs-keyword">return</span> err<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>不要在<code>checkErr</code>函数中使用<code>panic()</code>或<code>os.Exit()</code></li>
+<li>仅仅在很特殊的情况下才使用<code>panic()</code>，你必须要去处理<code>error</code></li>
+<li>不要给枚举使用别名，因为这样打破了类型安全<a target="_blank" rel="noopener" href="https://play.golang.org/p/MGbeDwtXN3"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-keyword">package</span> main<br><span class="hljs-keyword">type</span> Status = <span class="hljs-type">int</span><br><span class="hljs-keyword">type</span> Format = <span class="hljs-type">int</span> <span class="hljs-comment">// remove `=` to have type safety</span><br><br><span class="hljs-keyword">const</span> A Status = <span class="hljs-number">1</span><br><span class="hljs-keyword">const</span> B Format = <span class="hljs-number">1</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>  <span class="hljs-built_in">println</span>(A == B) <span class="hljs-comment">// true, but a.type != b.type</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>如果你想省略返回参数，你最好表示出来，<code>_ = f()</code>比<code>f()</code>更好</li>
+<li>我们用<code>a := []T&#123;&#125;</code>简单初始化 slice</li>
+<li>用 range 循环来进行数组或 slice 的迭代</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-comment">// 更好</span><br><span class="hljs-keyword">for</span> _, c := <span class="hljs-keyword">range</span> a[<span class="hljs-number">3</span>:<span class="hljs-number">7</span>] &#123; ... &#125;<br><br><span class="hljs-keyword">for</span> i := <span class="hljs-number">3</span>; i &lt; <span class="hljs-number">7</span>; i++ &#123; ...&#125;<br><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>多行字符串用反引号</li>
+<li>用<code>_</code>来跳过不用的参数</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">f</span><span class="hljs-params">(a <span class="hljs-type">int</span>, _ <span class="hljs-type">string</span>)</span></span> &#123;&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>如果你要比较时间戳，请使用<code>time.Before()</code>或<code>time.After()</code>，不要使用<code>time.Sub()</code>来获得 duration，然后检查他的值</li>
+<li>带有上下文的函数第一个参数名为<code>ctx</code>，形如<code>func foo(ctx Context, ...)</code></li>
+<li>几个类型相同的参数定义可以用简短的方式来定义，<code>func f(a int, b, c string)</code></li>
+<li>一个 slice 的零值是 nil<br><a target="_blank" rel="noopener" href="https://play.golang.org/p/pNT0d_Bunq"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-keyword">var</span> s []<span class="hljs-type">int</span><br>fmt.Println(s, <span class="hljs-built_in">len</span>(s), <span class="hljs-built_in">cap</span>(s))<br><span class="hljs-keyword">if</span> s == <span class="hljs-literal">nil</span> &#123;<br>    fmt.Println(<span class="hljs-string">&quot;nil!&quot;</span>)<br>&#125;<br><br><span class="hljs-comment">// Output:</span><br><span class="hljs-comment">// [] 0 0</span><br><span class="hljs-comment">// nil!</span><br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://play.golang.org/p/meTInNyxtk"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-keyword">var</span> a []<span class="hljs-type">string</span><br>b := []<span class="hljs-type">string</span>&#123;&#125;<br><br>fmt.Println(reflect.DeepEqual(a, []<span class="hljs-type">string</span>&#123;&#125;))<br>fmt.Println(reflect.DeepEqual(b, []<span class="hljs-type">string</span>&#123;&#125;))<br><span class="hljs-comment">// Output:</span><br><span class="hljs-comment">// false</span><br><span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>不要将枚举类型与<code>&lt;</code>,<code>&gt;</code>,<code>&lt;=</code>,<code>&gt;=</code>进行比较，使用确定的值</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs golang">value := reflect.ValueOf(object)<br>kind := value.Kind()<br><span class="hljs-keyword">if</span> kind &gt;= reflect.Chan &amp;&amp; kind &lt;= reflect.Slice &#123;<br><span class="hljs-comment">// ...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>用<code>%+v</code>来打印数据比较全的信息</li>
+<li>注意空结构<code>struct&#123;&#125;</code>，看 issue: <a target="_blank" rel="noopener" href="https://github.com/golang/go/issues/23440">golang&#x2F;go#23440</a> or <a target="_blank" rel="noopener" href="https://play.golang.org/p/9C0puRUstrP"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">f1</span><span class="hljs-params">()</span></span> &#123;<br>    <span class="hljs-keyword">var</span> a, b <span class="hljs-keyword">struct</span>&#123;&#125;<br>    <span class="hljs-built_in">print</span>(&amp;a, <span class="hljs-string">&quot;\n&quot;</span>, &amp;b, <span class="hljs-string">&quot;\n&quot;</span>) <span class="hljs-comment">// Prints same address</span><br>    fmt.Println(&amp;a == &amp;b)     <span class="hljs-comment">// Comparison returns false</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">f2</span><span class="hljs-params">()</span></span> &#123;<br>    <span class="hljs-keyword">var</span> a, b <span class="hljs-keyword">struct</span>&#123;&#125;<br>    fmt.Printf(<span class="hljs-string">&quot;%p\n%p\n&quot;</span>, &amp;a, &amp;b) <span class="hljs-comment">// Again, same address</span><br>    fmt.Println(&amp;a == &amp;b)          <span class="hljs-comment">// ...but the comparison returns true</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>包装错误<a target="_blank" rel="noopener" href="http://github.com/pkg/errors"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a>，如<code>errors.Wrap(err, &quot;additional message to a given error&quot;)</code></li>
+<li>在 go 里要小心使用<code>range</code><ol>
+<li><code>for i := range a</code>和<code>for i,v := range &amp;a</code>，都不是<code>a</code>的副本</li>
+<li><code>for i, v := range a</code>里面就是<code>a</code>的副本</li>
+<li>more <a target="_blank" rel="noopener" href="https://play.golang.org/p/4b181zkB1O"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></li>
+</ol>
+</li>
+<li>从 map 里读取一个不存在的 key 不会 panic</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs golang">value := <span class="hljs-keyword">map</span>[<span class="hljs-string">&quot;no_key&quot;</span>]  <span class="hljs-comment">// return 0</span><br><br><span class="hljs-comment">// well</span><br>value, ok := <span class="hljs-keyword">map</span>[<span class="hljs-string">&quot;no_key&quot;</span>] <span class="hljs-comment">// return 0, false and check ok</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>不要使用原始参数进行文件操作</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-comment">// bad</span><br>os.MkdirAll(path, <span class="hljs-number">0700</span>)<br><br><span class="hljs-comment">// good</span><br>os.MkdirAll(path, os.FileMode)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>要不忘记对<code>iota</code>指定一种类型<a target="_blank" rel="noopener" href="https://play.golang.org/p/mZZdMaI92cI"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-keyword">const</span> (<br>  _ = <span class="hljs-literal">iota</span><br>  testvar         <span class="hljs-comment">// testvar 将是 int 类型</span><br>)<br><br><span class="hljs-keyword">type</span> myType <span class="hljs-type">int</span><br><span class="hljs-keyword">const</span> (<br>  _ myType = <span class="hljs-literal">iota</span><br>  testvar         <span class="hljs-comment">// testvar 将是 myType 类型</span><br>)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>不要在你不拥有的结构上使用<code>encoding/gob</code>，在某些时候，结构可能会改变，而你可能会错过这一点。因此，这可能会导致很难找到 bug。</li>
+<li>不要依赖于计算顺序，特别是在<code>return</code>语句中</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-comment">// BAD</span><br><span class="hljs-keyword">return</span> res, json.Unmarshal(b, &amp;res)<br><br><span class="hljs-comment">// GOOD</span><br>err := json.Unmarshal(b, &amp;res)<br><span class="hljs-keyword">return</span> res, err<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>防止结构体字段用纯值方式初始化，添加<code>_ struct&#123;&#125;</code>字段</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-keyword">type</span> Point <span class="hljs-keyword">struct</span> &#123;<br>  X, Y <span class="hljs-type">float64</span><br>  _    <span class="hljs-keyword">struct</span>&#123;&#125; <span class="hljs-comment">// to prevent unkeyed literals</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    p1 := Point&#123;X: <span class="hljs-number">1</span>, Y: <span class="hljs-number">1</span>&#125;<br>    p2 := Point&#123;<span class="hljs-number">1</span>, <span class="hljs-number">1</span>&#125;           <span class="hljs-comment">// compile error</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>防止结构比较，可以添加<code>func</code>类型的空字段</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-keyword">type</span> Point <span class="hljs-keyword">struct</span> &#123;<br>    _ [<span class="hljs-number">0</span>]<span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span> <span class="hljs-comment">// unexported, zero-width non-comparable field</span><br>    X, Y <span class="hljs-type">float64</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    p1, p2 := Point(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>), Point(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)<br>    fmt.Println(p1 == p2)   <span class="hljs-comment">// 正常输出true，但添加func空字段后会编译报错</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>http.HandlerFunc</code>比<code>http.Handler</code>更好，<code>http.HandlerFunc</code>只需要一个 func，<code>http.Handler</code>需要一个类型</li>
+<li><code>defer</code>移动至顶部，提高代码可靠性，并明确函数结束调用了什么</li>
+<li>JS 解析整数为浮点数可能会导致 int64 溢出，使用<code>json:&quot;id,string&quot;</code></li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-keyword">type</span> Request <span class="hljs-keyword">struct</span> &#123;<br>    ID <span class="hljs-type">int64</span> <span class="hljs-string">`json:&quot;id,string&quot;`</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-并发"><a href="#4-并发" class="headerlink" title="4. 并发"></a>4. 并发</h3><ul>
+<li>以线程安全的方式创建单例（只创建一次）的最好选择是<code>sync.Once</code>，不要使用 flags、mutexes、channels or atomics</li>
+<li>永远不要使用<code>select&#123;&#125;</code>，省略通道，等待信号 <span class="github-emoji" alias="question" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2753.png?v8">&#x2753;</span></li>
+<li>不要关闭一个发送（写入）通道，应该由创建者关闭（<span class="github-emoji" alias="warning" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8">&#x26a0;</span>往一个关闭的 channel 里写数据会 panic）</li>
+<li><code>math/rand</code>中的<code>func NewSource(seed int64) Source</code>不是并发安全的，默认的<code>lockedSource</code>是并发安全的<a target="_blank" rel="noopener" href="https://github.com/golang/go/issues/3611"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a> or <a target="_blank" rel="noopener" href="https://golang.org/pkg/math/rand/"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></li>
+<li>当你需要一个自定义类型的 aotmic 值时，你可以使用<code>atomic.Value</code></li>
+</ul>
+<h3 id="5-性能"><a href="#5-性能" class="headerlink" title="5. 性能"></a>5. 性能</h3><ul>
+<li>不要省略<code>defer</code>，大多数情况下 200ns 加速可以忽略不计</li>
+<li>总是关闭 http body，<code>defer r.Body.Close()</code>，除非你需要泄漏 goroutine</li>
+<li>过滤不需要分配新内存</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs golang">b := a[:<span class="hljs-number">0</span>]<br><span class="hljs-keyword">for</span> _, x := <span class="hljs-keyword">range</span> a &#123;<br>    <span class="hljs-keyword">if</span> condition &#123;<br>        b = <span class="hljs-built_in">append</span>(b, x)<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 为了帮助编译器删除绑定检查，参考`_ = b[7]`</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>time.Time</code>有指针字段<code>time.Location</code>并且这对 go GC 不好，只有使用了大量的<code>time.Time</code>对性能才有意义，否则使用 timestamp 代替</li>
+<li><code>regexp.MustCompile</code>比<code>regexp.Compile</code>更好，大多数情况下，正则表达式是不可变的，所以你最好在<code>func init</code>中初始化它</li>
+<li>请勿在你的热点代码中过度使用<code>fmt.Sprintf</code>，由于维护接口的缓冲池和动态调度，它是很昂贵的</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs golang">res := fmt.Sprintf(<span class="hljs-string">&quot;%s%s&quot;</span>, str1, str2)<br><span class="hljs-comment">// may be</span><br>res := str1 + str2<br><br>res = fmt.Sprintf(<span class="hljs-string">&quot;%x&quot;</span>,<span class="hljs-keyword">var</span>)<br><span class="hljs-comment">// may be</span><br>res = strconv.FormatInt(<span class="hljs-keyword">var</span>, <span class="hljs-number">16</span>)<br><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>如果你不需要它，可以考虑丢弃它，例如<code>io.Copy(ioutil.Discard, resp.Body)</code>，HTTP 客户端的传输不会重新连接，直到 body 被读完或关闭</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs golang">res, _ := client.Do(req)<br>io.Copy(ioutil.Discard, res.Body)<br><span class="hljs-keyword">defer</span> res.Body.Close()<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>不要在循环里使用 defer，否则会导致内存泄漏，因为这些 defer 会不断地填满你的栈（内存）</li>
+<li>不要忘记停止 ticker，除非你需要泄漏 channel</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs golang">ticker := time.NewTicker(<span class="hljs-number">1</span> * time.Second)<br><span class="hljs-keyword">defer</span> ticker.Stop()<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>用自定义的 marshaler 去加速 marshal 过程，但是在使用它之前要进行定制！<a target="_blank" rel="noopener" href="https://play.golang.org/p/SEm9Hvsi0r"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(entry Entry)</span></span> MarshalJSON() ([]<span class="hljs-type">byte</span>, <span class="hljs-type">error</span>) &#123;<br>    buffer := bytes.NewBufferString(<span class="hljs-string">&quot;&#123;&quot;</span>)<br>    first := <span class="hljs-literal">true</span><br>    <span class="hljs-keyword">for</span> key, value := <span class="hljs-keyword">range</span> entry &#123;<br>        jsonValue, err := json.Marshal(value)<br>        <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>, err<br>        &#125;<br>        <span class="hljs-keyword">if</span> !first &#123;<br>            buffer.WriteString(<span class="hljs-string">&quot;,&quot;</span>)<br>        &#125;<br>        first = <span class="hljs-literal">false</span><br>        buffer.WriteString(key + <span class="hljs-string">&quot;:&quot;</span> + <span class="hljs-type">string</span>(jsonValue))<br>    &#125;<br>    buffer.WriteString(<span class="hljs-string">&quot;&#125;&quot;</span>)<br>    <span class="hljs-keyword">return</span> buffer.Bytes(), <span class="hljs-literal">nil</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>sync.Map</code>是万能的，没有过硬的理由就要不使用它 <a target="_blank" rel="noopener" href="https://github.com/golang/go/blob/master/src/sync/map.go#L12"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></li>
+<li>在<code>sync.Pool</code>中分配内存存储非指针数据 <a target="_blank" rel="noopener" href="https://github.com/dominikh/go-tools/blob/master/cmd/staticcheck/docs/checks/SA6002"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></li>
+<li>为了隐藏逃生分析的指针，你可以小心使用这个函数 <a target="_blank" rel="noopener" href="https://go-review.googlesource.com/c/go/+/86976"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-comment">// noescape hides a pointer from escape analysis.  noescape is</span><br><span class="hljs-comment">// the identity function but escape analysis doesn&#x27;t think the</span><br><span class="hljs-comment">// output depends on the input. noescape is inlined and currently</span><br><span class="hljs-comment">// compiles down to zero instructions.</span><br><span class="hljs-comment">//go:nosplit</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">noescape</span><span class="hljs-params">(p unsafe.Pointer)</span></span> unsafe.Pointer &#123;<br>    x := <span class="hljs-type">uintptr</span>(p)<br>    <span class="hljs-keyword">return</span> unsafe.Pointer(x ^ <span class="hljs-number">0</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>对于最快的原子交换，你可以使用<code>m := (*map[int]int)(atomic.LoadPointer(&amp;ptr))</code> <span class="github-emoji" alias="question" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2753.png?v8">&#x2753;</span></li>
+<li>如果执行许多顺序读取或写入操作，请使用缓冲 I&#x2F;O，以减少系统调用次数</li>
+<li>两种清空一个 map 的方法</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-comment">// 重用map内存（但是也要注意m的回收）</span><br><span class="hljs-keyword">for</span> k := <span class="hljs-keyword">range</span> m &#123;<br>    <span class="hljs-built_in">delete</span>(m, k)<br>&#125;<br><br><span class="hljs-comment">// 给m分配新的内存</span><br>m = <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-type">int</span>]<span class="hljs-type">int</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="6-模块"><a href="#6-模块" class="headerlink" title="6. 模块"></a>6. 模块</h3><ul>
+<li>如果你想在 CI 中测试<code>go.mod</code>和<code>go.sum</code>是否是最新<a target="_blank" rel="noopener" href="https://blog.urth.org/2019/08/13/testing-go-mod-tidiness-in-ci/"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></li>
+</ul>
+<h3 id="7-构建"><a href="#7-构建" class="headerlink" title="7. 构建"></a>7. 构建</h3><ul>
+<li>用<code>go build -ldflags=&quot;-s -w&quot; ...</code>去掉你的二进制文件</li>
+<li>拆分构建不同版本的简单方法，用<code>// + build integration</code>并且运行他们<code>go test -v --tags integration</code></li>
+<li>构建最小的 Go Docker 镜像<a target="_blank" rel="noopener" href="https://twitter.com/bbrodriges/status/873414658178396160"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">CGO_ENABLED=0 go build -ldflags=&quot;-s -w&quot; app.go &amp;&amp; tar C app | docker import - myimage:latest<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>run go format on CI and compare diff，确保一切都是生成的和承诺的</li>
+<li>用最新的 Go 运行 Travis-CI，用<code>travis 1</code> <a target="_blank" rel="noopener" href="https://github.com/travis-ci/travis-build/blob/master/public/version-aliases/go.json"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></li>
+<li>检查代码格式是否有错误<code>diff -u &lt;(echo -n) &lt;(gofmt -d .)</code></li>
+</ul>
+<h3 id="8-测试"><a href="#8-测试" class="headerlink" title="8. 测试"></a>8. 测试</h3><ul>
+<li>测试名称<code>package_test</code>比<code>package</code>要好</li>
+<li><code>go test -short</code>允许减少要运行的测试数</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">TestSomething</span><span class="hljs-params">(t *testing.T)</span></span> &#123;<br>    <span class="hljs-keyword">if</span> testing.Short() &#123;<br>        t.Skip(<span class="hljs-string">&quot;skipping test in short mode.&quot;</span>)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>根据系统架构跳过测试</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-keyword">if</span> runtime.GOARM == <span class="hljs-string">&quot;arm&quot;</span> &#123;<br>    t.Skip(<span class="hljs-string">&quot;this doesn&#x27;t work under ARM&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>用<code>testing.AllocPerRun</code>跟踪你的内存分配<a target="_blank" rel="noopener" href="https://godoc.org/testing#AllocsPerRun"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></li>
+<li>多次运行你的基准测试可以避免噪音<code>go test -test.bench=. -count=20</code></li>
+</ul>
+<h3 id="9-工具"><a href="#9-工具" class="headerlink" title="9. 工具"></a>9. 工具</h3><ul>
+<li>快速替换<code>gofmt -w -l -r &quot;panic(err) -&gt; log.Error(err)&quot;</code>.</li>
+<li><code>go list</code>允许找到所有直接和传递的依赖关系<ul>
+<li><code>go list -f &#39;&#123;&#123; .Imports &#125;&#125;&#39; package</code>列出 package 中引入的包</li>
+<li><code>go list -f &#39;&#123;&#123; .Deps &#125;&#125;&#39; package</code>列出 package 中所有包的信息</li>
+</ul>
+</li>
+<li>对于快速基准比较，<a target="_blank" rel="noopener" href="https://godoc.org/golang.org/x/perf/cmd/benchstat"><code>benchstat</code></a></li>
+<li><code>go-critic</code> linter，从这个文件中强制执行几条建议</li>
+<li><code>go mod why -m &lt;module&gt;</code>告诉我们为什么特定的模块在<code>go.mod</code>文件中。</li>
+<li><code>GOGC=off go build ...</code>应该会加快构建速度<a target="_blank" rel="noopener" href="https://twitter.com/mvdan_/status/1107579946501853191"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></li>
+<li>内存分析器每 512KB 记录一次分配。你能通过<code>GODEBUG</code>环境变量增加比例，来查看你的文件的更多详细信息<a target="_blank" rel="noopener" href="https://twitter.com/bboreham/status/1105036740253937664"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></li>
+</ul>
+<h3 id="10-其它"><a href="#10-其它" class="headerlink" title="10. 其它"></a>10. 其它</h3><ul>
+<li>dump goroutines <a target="_blank" rel="noopener" href="https://stackoverflow.com/a/27398062/433041"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-keyword">go</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span> &#123;<br>    sigs := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> os.Signal, <span class="hljs-number">1</span>)<br>    signal.Notify(sigs, syscall.SIGQUIT)<br>    buf := <span class="hljs-built_in">make</span>([]<span class="hljs-type">byte</span>, <span class="hljs-number">1</span>&lt;&lt;<span class="hljs-number">20</span>)<br>    <span class="hljs-keyword">for</span> &#123;<br>        &lt;-sigs<br>        stacklen := runtime.Stack(buf, <span class="hljs-literal">true</span>)<br>        log.Printf(<span class="hljs-string">&quot;=== received SIGQUIT ===\n*** goroutine dump...\n%s\n*** end\n&quot;</span>  , buf[:stacklen])<br>    &#125;<br>&#125;()<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>在编译期检查接口的实现</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-keyword">var</span> _ io.Reader = (*MyFastReader)(<span class="hljs-literal">nil</span>)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>len(nil) = 0</code> <a target="_blank" rel="noopener" href="https://golang.org/pkg/builtin/#len"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></li>
+<li>匿名结构体很好用</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs golang"><span class="hljs-keyword">var</span> hits <span class="hljs-keyword">struct</span> &#123;<br>    sync.Mutex<br>    n <span class="hljs-type">int</span><br>&#125;<br>hits.Lock()<br>hits.n++<br>hits.Unlock()<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>httputil.DumpRequest</code>是非常有用的东西，不要自己创建<a target="_blank" rel="noopener" href="https://godoc.org/net/http/httputil#DumpRequest"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></li>
+<li>获得调用堆栈，可以使用<code>runtime.Caller</code> <a target="_blank" rel="noopener" href="https://golang.org/pkg/runtime/#Caller"><span class="github-emoji" alias="link" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">&#x1f517;</span></a></li>
+<li>要 marshal 未知的 JSON，你可以 marshal 为<code>map[string]interface&#123;&#125;</code></li>
+<li>从一个 slice 生成简单的随机元素</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs golang">[]<span class="hljs-type">string</span>&#123;<span class="hljs-string">&quot;one&quot;</span>, <span class="hljs-string">&quot;two&quot;</span>, <span class="hljs-string">&quot;three&quot;</span>&#125;[rand.Intn(<span class="hljs-number">3</span>)]<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Language/" class="category-chain-item">Language</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Golang/" class="print-no-link">#Golang</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Golang笺言</div>
+      <div>http://blog.byt0723.xyz/20220806/golang-proverbs/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>BYT0723</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>August 6, 2022</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/20221103/golang-debug/" title="Go Debug">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Go Debug</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/20220617/archlinux-installation/" title="Arch旅行第一集-安装Arch">
+                        <span class="hidden-mobile">Arch旅行第一集-安装Arch</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"eyzphHf860m4wcx8DrXDGAjS-gzGzoHsz","appKey":"ZZxwZwJSNQPGsEwTW84cXxyW","path":"window.location.pathname","placeholder":"say something","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://eyzphhf8.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+<i class="iconfont icon-love"></i>
+<a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
+
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
